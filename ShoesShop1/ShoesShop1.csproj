@@ -1,0 +1,1307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{11B3FAA6-E560-4AF6-A91A-081836645209}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShoesShop1</RootNamespace>
+    <AssemblyName>ShoesShop1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Models\CommonConstant.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Common\AdminLogin.cs" />
+    <Compile Include="Common\Encrypt.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\App_Code\ConnectorConfig.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\App_Code\RoleBasedAuthenticator.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.DiskQuota\DiskQuotaPlugin.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.DiskQuota\Properties\AssemblyInfo.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.GetFileInfo\GetFileInfoCommand.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.GetFileInfo\GetFileInfoPlugin.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.GetFileInfo\Properties\AssemblyInfo.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.UserActionsLogger\Properties\AssemblyInfo.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.UserActionsLogger\UserActionsLoggerPlugin.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.Watermark\Blit.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.Watermark\HorizontalAnchor.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.Watermark\Position.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.Watermark\Properties\AssemblyInfo.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.Watermark\VerticalAnchor.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.Watermark\WatermarkPlugin.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\App_Code\ConnectorConfig.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\App_Code\RoleBasedAuthenticator.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\Properties\AssemblyInfo.cs" />
+    <Compile Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\Startup.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\amd64\sqlceca40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\amd64\sqlcecompact40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\amd64\sqlceer40EN.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\amd64\sqlceme40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\amd64\sqlceqp40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\amd64\sqlcese40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Autofac.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\AWSSDK.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.CKFinder.Connector.Config.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.CKFinder.Connector.Core.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.CKFinder.Connector.Host.Owin.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.CKFinder.Connector.KeyValue.FileSystem.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.CKFinder.Connector.Logs.NLog.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.CKFinder.Connector.WebApp.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.FileSystem.Amazon.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.FileSystem.Azure.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.FileSystem.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.FileSystem.Dropbox.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.FileSystem.Ftp.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\CKSource.FileSystem.Local.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\de\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\de\Microsoft.Data.OData.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\de\Microsoft.Data.Services.Client.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\de\System.Spatial.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Dropbox.Api.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\es\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\es\Microsoft.Data.OData.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\es\Microsoft.Data.Services.Client.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\es\System.Spatial.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\fr\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\fr\Microsoft.Data.OData.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\fr\Microsoft.Data.Services.Client.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\fr\System.Spatial.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ImageProcessor.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\it\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\it\Microsoft.Data.OData.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\it\Microsoft.Data.Services.Client.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\it\System.Spatial.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ja\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ja\Microsoft.Data.OData.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ja\Microsoft.Data.Services.Client.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ja\System.Spatial.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ko\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ko\Microsoft.Data.OData.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ko\Microsoft.Data.Services.Client.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ko\System.Spatial.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Azure.KeyVault.Core.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Data.Edm.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Data.OData.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Data.Services.Client.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Owin.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Owin.Security.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Threading.Tasks.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Threading.Tasks.Extensions.Desktop.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.Threading.Tasks.Extensions.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Microsoft.WindowsAzure.Storage.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Newtonsoft.Json.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\NLog.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\Owin.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\RestSharp.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ru\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ru\Microsoft.Data.OData.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ru\Microsoft.Data.Services.Client.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\ru\System.Spatial.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\System.Data.SqlServerCe.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\System.Net.FtpClient.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\System.Net.Http.Extensions.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\System.Net.Http.Formatting.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\System.Net.Http.Primitives.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\System.Spatial.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\x86\Microsoft.VC90.CRT\README_ENU.txt" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\x86\sqlceca40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\x86\sqlcecompact40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\x86\sqlceer40EN.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\x86\sqlceme40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\x86\sqlceqp40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\x86\sqlcese40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\zh-Hans\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\zh-Hans\Microsoft.Data.OData.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\zh-Hans\System.Spatial.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\zh-Hant\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\zh-Hant\Microsoft.Data.OData.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\zh-Hant\System.Spatial.resources.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\CHANGELOG.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\ckfinder.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\ckfinder.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\config.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\caman.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\ajax-loader.gif" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\action-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\action-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\alert-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\alert-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-d-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-d-l-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-d-l-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-d-r-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-d-r-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-d-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-l-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-l-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-r-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-r-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-u-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-u-l-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-u-l-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-u-r-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-u-r-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\arrow-u-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\audio-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\audio-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\back-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\back-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\bars-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\bars-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\bullets-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\bullets-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\calendar-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\calendar-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\camera-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\camera-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\carat-d-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\carat-d-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\carat-l-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\carat-l-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\carat-r-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\carat-r-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\carat-u-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\carat-u-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\check-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\check-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\clock-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\clock-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\cloud-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\cloud-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\comment-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\comment-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\delete-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\delete-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\edit-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\edit-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\eye-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\eye-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\forbidden-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\forbidden-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\forward-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\forward-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\gear-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\gear-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\grid-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\grid-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\heart-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\heart-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\home-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\home-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\info-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\info-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\location-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\location-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\lock-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\lock-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\mail-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\mail-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\minus-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\minus-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\navigation-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\navigation-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\phone-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\phone-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\plus-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\plus-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\power-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\power-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\recycle-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\recycle-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\refresh-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\refresh-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\search-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\search-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\shop-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\shop-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\star-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\star-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\tag-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\tag-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\user-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\user-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\video-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\images\icons-png\video-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\jquery.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\jquery.mobile.icons.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\jquery.mobile.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\jquery.mobile.structure.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\libs\jquery.mobile.theme.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\LICENSE.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\README.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\ckeditor.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\adjoined-separator.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\alert.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-close.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-download.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-navigation-a-github.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-question-mark.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-sdk-book.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-sdk-documentation.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-sdk-gear.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-sdk-sample.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-toggler-light.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-toggler.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-tree-a-collapser.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\icon-tree-a-link.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\img\tip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\css\sample.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\full-page-open.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\full-page.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\img\favicon.ico" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\img\logo.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\index.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\js\html5shiv.min.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\js\sf.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\js\tree-a.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\localization.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\modals.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\other-custom-configuration.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\other-read-only.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\plugin-examples.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\plugins\StatusBarInfo\StatusBarInfo.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\popups.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\skins-jquery-mobile.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\skins-moono.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\user-interface-compact.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\user-interface-default.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\user-interface-listview.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\user-interface-mobile.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\samples\widget.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\ckfinder.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\impress.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\writer.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\128\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\impress.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\writer.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\16\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\22\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\256\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\impress.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\writer.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\32\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\impress.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\writer.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\48\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\impress.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\writer.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\file-icons\64\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\images\custom\128\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\images\custom\256\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\images\custom\32\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\images\custom\48\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\core\images\custom\64\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\jquery-mobile\icons.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\moono\ckfinder.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\moono\icons.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\skins\moono\images\ajax-loader.gif" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.DiskQuota\CKFinder.Connector.Plugin.DiskQuota.csproj" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.GetFileInfo\CKFinder.Connector.Plugin.GetFileInfo.csproj" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.UserActionsLogger\CKFinder.Connector.Plugin.UserActionsLogger.csproj" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.Watermark\CKFinder.Connector.Plugin.Watermark.csproj" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\CHANGELOG.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\CKFinder.Connector.WebApp.csproj" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\ckfinder.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\ckfinder.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\config.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\caman.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\ajax-loader.gif" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\action-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\action-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\alert-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\alert-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-d-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-d-l-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-d-l-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-d-r-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-d-r-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-d-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-l-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-l-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-r-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-r-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-u-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-u-l-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-u-l-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-u-r-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-u-r-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\arrow-u-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\audio-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\audio-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\back-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\back-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\bars-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\bars-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\bullets-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\bullets-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\calendar-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\calendar-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\camera-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\camera-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\carat-d-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\carat-d-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\carat-l-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\carat-l-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\carat-r-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\carat-r-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\carat-u-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\carat-u-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\check-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\check-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\clock-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\clock-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\cloud-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\cloud-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\comment-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\comment-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\delete-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\delete-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\edit-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\edit-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\eye-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\eye-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\forbidden-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\forbidden-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\forward-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\forward-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\gear-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\gear-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\grid-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\grid-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\heart-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\heart-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\home-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\home-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\info-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\info-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\location-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\location-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\lock-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\lock-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\mail-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\mail-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\minus-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\minus-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\navigation-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\navigation-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\phone-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\phone-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\plus-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\plus-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\power-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\power-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\recycle-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\recycle-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\refresh-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\refresh-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\search-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\search-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\shop-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\shop-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\star-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\star-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\tag-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\tag-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\user-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\user-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\video-black.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\images\icons-png\video-white.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\jquery.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\jquery.mobile.icons.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\jquery.mobile.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\jquery.mobile.structure.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\libs\jquery.mobile.theme.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\LICENSE.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\README.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\ckeditor.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\adjoined-separator.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\alert.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-close.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-download.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-navigation-a-github.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-question-mark.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-sdk-book.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-sdk-documentation.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-sdk-gear.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-sdk-sample.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-toggler-light.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-toggler.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-tree-a-collapser.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\icon-tree-a-link.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\img\tip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\css\sample.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\full-page-open.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\full-page.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\img\favicon.ico" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\img\logo.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\index.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\js\html5shiv.min.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\js\sf.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\js\tree-a.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\localization.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\modals.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\other-custom-configuration.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\other-read-only.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\plugin-examples.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\plugins\StatusBarInfo\StatusBarInfo.js" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\popups.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\skins-jquery-mobile.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\skins-moono.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\user-interface-compact.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\user-interface-default.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\user-interface-listview.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\user-interface-mobile.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\samples\widget.html" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\ckfinder.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\impress.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\writer.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\128\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\impress.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\writer.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\16\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\22\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\256\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\impress.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\writer.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\32\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\impress.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\writer.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\48\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\7z.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\access.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\audio.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\calc.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\css.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\csv.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\directory.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\draw.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\excel.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\html.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\impress.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\javascript.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\log.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\msword.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\pdf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\php.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\plain.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\powerpoint.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\rar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\readme.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\rtf.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\sql.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\tar.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\unknown.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\video.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\writer.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\file-icons\64\zip.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\images\custom\128\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\images\custom\256\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\images\custom\32\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\images\custom\48\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\core\images\custom\64\image.png" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\jquery-mobile\icons.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\moono\ckfinder.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\moono\icons.css" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\skins\moono\images\ajax-loader.gif" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\amd64\sqlceca40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\amd64\sqlcecompact40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\amd64\sqlceer40EN.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\amd64\sqlceme40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\amd64\sqlceqp40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\amd64\sqlcese40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\README_ENU.txt" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\x86\sqlceca40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\x86\sqlcecompact40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\x86\sqlceer40EN.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\x86\sqlceme40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\x86\sqlceqp40.dll" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\x86\sqlcese40.dll" />
+    <Content Include="Content\Admin\js\sb-admin-2.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Client\nivo-slider.css" />
+    <Content Include="Content\Client\templatemo_style.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admins\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admins\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Admins\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutMenu.cshtml" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\bg.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\bs.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\ca.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\cs.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\cy.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\da.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\de-ch.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\de.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\el.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\en.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\eo.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\es-mx.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\es.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\et.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\eu.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\fa.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\fi.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\fr.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\gu.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\he.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\hi.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\hr.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\hu.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\it.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\ja.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\ko.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\ku.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\lt.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\lv.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\nb.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\nl.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\nn.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\no.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\pl.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\pt-br.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\ro.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\ru.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\sk.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\sl.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\sr.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\sv.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\tr.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\uk.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\vi.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\zh-cn.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\lang\zh-tw.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\NLog.config" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\packages.config" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\plugins\README.md" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\README.md" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.DiskQuota\packages.config" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.DiskQuota\README.md" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.GetFileInfo\packages.config" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.GetFileInfo\README.md" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.UserActionsLogger\packages.config" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.UserActionsLogger\README.md" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.Watermark\packages.config" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.Plugin.Watermark\README.md" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\bg.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\bs.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\ca.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\cs.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\cy.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\da.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\de-ch.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\de.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\el.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\en.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\eo.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\es-mx.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\es.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\et.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\eu.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\fa.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\fi.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\fr.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\gu.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\he.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\hi.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\hr.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\hu.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\id.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\it.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\ja.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\ko.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\ku.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\lt.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\lv.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\nb.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\nl.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\nn.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\no.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\pl.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\pt-br.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\ro.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\ru.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\sk.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\sl.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\sr.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\sv.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\tr.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\uk.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\vi.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\zh-cn.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\lang\zh-tw.json" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\NLog.config" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\packages.config" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\plugins\README.md" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\README.md" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\Web.config" />
+    <None Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\src\CKFinder.Connector.WebApp\_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <Content Include="Content\Admin\js\plugin\ckfinder\Web.config" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_BestSeller.cshtml" />
+    <Content Include="Views\Home\Category.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Shared\_LayoutCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Content\Admin\data\" />
+    <Folder Include="Content\Admin\dist\" />
+    <Folder Include="Content\Admin\js\plugin\ckfinder\App_Data\" />
+    <Folder Include="Content\Admin\js\plugin\ckfinder\userfiles\" />
+    <Folder Include="Content\Admin\less\" />
+    <Folder Include="Content\Admin\vendor\" />
+    <Folder Include="Content\Client\css\" />
+    <Folder Include="Content\Client\images\" />
+    <Folder Include="Content\Client\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{777d83e6-c99d-4ab9-a98a-49e69602e33a}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60900</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60900/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

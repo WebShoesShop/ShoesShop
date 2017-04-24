@@ -1,0 +1,13 @@
+﻿@using ShoesShop1.Models;
+@model List<Category>
+
+<span class="bottom"></span>
+<h3>Categories</h3>
+<div class="content">
+    <ul class="sidebar_list">
+        @foreach (var item in Model)
+        {
+            <li>@Html.ActionLink(@item.Name, "ListProduct", "Home", new { categoryId = @item.Id })</li>
+        }
+    </ul>
+</div>

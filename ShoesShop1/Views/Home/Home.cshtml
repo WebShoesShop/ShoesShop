@@ -1,0 +1,40 @@
+﻿@using ShoesShop1.Models;
+@model List<Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@foreach (var item in Model)
+{
+    <div class="product_box">
+        <h3>@item.name</h3>
+        <a href="productdetail.html"><img src=@item.imgString alt="Shoes 1" /></a>
+        <p>@item.des</p>
+        <p class="product_price">@item.price</p>
+        <a href="shoppingcart.html" class="addtocart"></a>
+        <a href="productdetail.html" class="detail"></a>
+    </div>
+}
+
+
+
+@section banner {
+    <div id="slider-wrapper">
+        <div id="slider" class="nivoSlider">
+            <img src="~/Content/Client/images/slider/02.jpg" alt="" />
+            <a href="#"><img src="~/Content/Client/images/slider/01.jpg" alt="" title="This is an example of a caption" /></a>
+            <img src="~/Content/Client/images/slider/03.jpg" alt="" />
+            <img src="~/Content/Client/images/slider/04.jpg" alt="" title="#htmlcaption" />
+        </div>
+        <div id="htmlcaption" class="nivo-html-caption">
+            <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Content/Client/js/jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+            $(window).load(function() {
+                $('#slider').nivoSlider();
+            });
+    </script>
+}
