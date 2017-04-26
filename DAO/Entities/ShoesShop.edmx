@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ShoesShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="adminId" />
+          </Key>
+          <Property Name="adminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminName" Type="nvarchar" MaxLength="100" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="role" Type="int" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="authorId" />
+          </Key>
+          <Property Name="authorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="authorName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="cartId" />
+          </Key>
+          <Property Name="cartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isPurchased" Type="bit" />
+          <Property Name="userId" Type="int" />
+        </EntityType>
+        <EntityType Name="CartDetail">
+          <Key>
+            <PropertyRef Name="cartId" />
+            <PropertyRef Name="productId" />
+          </Key>
+          <Property Name="cartId" Type="int" Nullable="false" />
+          <Property Name="productId" Type="int" Nullable="false" />
+          <Property Name="number" Type="int" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="invoiceId" />
+          </Key>
+          <Property Name="invoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cartId" Type="int" />
+          <Property Name="dateOfPayment" Type="datetime" />
+          <Property Name="totalAmount" Type="money" />
+          <Property Name="methodId" Type="int" />
+        </EntityType>
+        <EntityType Name="Method">
+          <Key>
+            <PropertyRef Name="methodId" />
+          </Key>
+          <Property Name="methodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="methodName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="productId" />
+          </Key>
+          <Property Name="productId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productName" Type="nvarchar" MaxLength="100" />
+          <Property Name="releaseDate" Type="date" />
+          <Property Name="startDate" Type="date" />
+          <Property Name="authorId" Type="int" />
+          <Property Name="typeId" Type="int" />
+          <Property Name="isAvailable" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProductImages">
+          <Key>
+            <PropertyRef Name="imgId" />
+          </Key>
+          <Property Name="imgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imgAbsolutPath" Type="nvarchar" MaxLength="150" />
+          <Property Name="flag" Type="bit" />
+          <Property Name="productId" Type="int" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="transactionId" />
+          </Key>
+          <Property Name="transactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="transactionTime" Type="datetime" />
+          <Property Name="methodId" Type="int" />
+          <Property Name="money" Type="money" />
+          <Property Name="userId" Type="int" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="typeId" />
+          </Key>
+          <Property Name="typeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="100" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="phoneNum" Type="nvarchar" MaxLength="15" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+          <Property Name="money" Type="money" />
+          <Property Name="userAva" Type="nvarchar" MaxLength="150" />
+          <Property Name="flag" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Cart_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CartDetail_Cart">
+          <End Role="Cart" Type="Self.Cart" Multiplicity="1" />
+          <End Role="CartDetail" Type="Self.CartDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cart">
+              <PropertyRef Name="cartId" />
+            </Principal>
+            <Dependent Role="CartDetail">
+              <PropertyRef Name="cartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CartDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="CartDetail" Type="Self.CartDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="productId" />
+            </Principal>
+            <Dependent Role="CartDetail">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Cart">
+          <End Role="Cart" Type="Self.Cart" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cart">
+              <PropertyRef Name="cartId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="cartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Method">
+          <End Role="Method" Type="Self.Method" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Method">
+              <PropertyRef Name="methodId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="methodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="authorId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="authorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="typeId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="typeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductImages_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductImages" Type="Self.ProductImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="productId" />
+            </Principal>
+            <Dependent Role="ProductImages">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShoesShopModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CartDetail" EntityType="Self.CartDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Method" EntityType="Self.Method" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductImages" EntityType="Self.ProductImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cart_User" Association="Self.FK_Cart_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CartDetail_Cart" Association="Self.FK_CartDetail_Cart">
+            <End Role="Cart" EntitySet="Cart" />
+            <End Role="CartDetail" EntitySet="CartDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CartDetail_Product" Association="Self.FK_CartDetail_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="CartDetail" EntitySet="CartDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Cart" Association="Self.FK_Invoice_Cart">
+            <End Role="Cart" EntitySet="Cart" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Method" Association="Self.FK_Invoice_Method">
+            <End Role="Method" EntitySet="Method" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Author" Association="Self.FK_Product_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Type" Association="Self.FK_Product_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductImages_Product" Association="Self.FK_ProductImages_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductImages" EntitySet="ProductImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_User" Association="Self.FK_Transaction_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ShoesShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="adminId" />
+          </Key>
+          <Property Name="adminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="authorId" />
+          </Key>
+          <Property Name="authorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="authorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Author" FromRole="Author" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="cartId" />
+          </Key>
+          <Property Name="cartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isPurchased" Type="Boolean" />
+          <Property Name="userId" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Cart_User" FromRole="Cart" ToRole="User" />
+          <NavigationProperty Name="CartDetails" Relationship="Self.FK_CartDetail_Cart" FromRole="Cart" ToRole="CartDetail" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoice_Cart" FromRole="Cart" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="CartDetail">
+          <Key>
+            <PropertyRef Name="cartId" />
+            <PropertyRef Name="productId" />
+          </Key>
+          <Property Name="cartId" Type="Int32" Nullable="false" />
+          <Property Name="productId" Type="Int32" Nullable="false" />
+          <Property Name="number" Type="Int32" />
+          <NavigationProperty Name="Cart" Relationship="Self.FK_CartDetail_Cart" FromRole="CartDetail" ToRole="Cart" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_CartDetail_Product" FromRole="CartDetail" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="invoiceId" />
+          </Key>
+          <Property Name="invoiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cartId" Type="Int32" />
+          <Property Name="dateOfPayment" Type="DateTime" Precision="3" />
+          <Property Name="totalAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="methodId" Type="Int32" />
+          <NavigationProperty Name="Cart" Relationship="Self.FK_Invoice_Cart" FromRole="Invoice" ToRole="Cart" />
+          <NavigationProperty Name="Method" Relationship="Self.FK_Invoice_Method" FromRole="Invoice" ToRole="Method" />
+        </EntityType>
+        <EntityType Name="Method">
+          <Key>
+            <PropertyRef Name="methodId" />
+          </Key>
+          <Property Name="methodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="methodName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoice_Method" FromRole="Method" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="productId" />
+          </Key>
+          <Property Name="productId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="releaseDate" Type="DateTime" Precision="0" />
+          <Property Name="startDate" Type="DateTime" Precision="0" />
+          <Property Name="authorId" Type="Int32" />
+          <Property Name="typeId" Type="Int32" />
+          <Property Name="isAvailable" Type="Boolean" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_Product_Author" FromRole="Product" ToRole="Author" />
+          <NavigationProperty Name="CartDetails" Relationship="Self.FK_CartDetail_Product" FromRole="Product" ToRole="CartDetail" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_Product_Type" FromRole="Product" ToRole="Type" />
+          <NavigationProperty Name="ProductImages" Relationship="Self.FK_ProductImages_Product" FromRole="Product" ToRole="ProductImages" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="imgId" />
+          </Key>
+          <Property Name="imgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imgAbsolutPath" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="flag" Type="Boolean" />
+          <Property Name="productId" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductImages_Product" FromRole="ProductImages" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="transactionId" />
+          </Key>
+          <Property Name="transactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="transactionTime" Type="DateTime" Precision="3" />
+          <Property Name="methodId" Type="Int32" />
+          <Property Name="money" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="userId" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Transaction_User" FromRole="Transaction" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="typeId" />
+          </Key>
+          <Property Name="typeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Type" FromRole="Type" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phoneNum" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="money" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="userAva" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="flag" Type="Boolean" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_User" FromRole="User" ToRole="Cart" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_User" FromRole="User" ToRole="Transaction" />
+        </EntityType>
+        <Association Name="FK_Product_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="authorId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="authorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CartDetail_Cart">
+          <End Role="Cart" Type="Self.Cart" Multiplicity="1" />
+          <End Role="CartDetail" Type="Self.CartDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cart">
+              <PropertyRef Name="cartId" />
+            </Principal>
+            <Dependent Role="CartDetail">
+              <PropertyRef Name="cartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Cart">
+          <End Role="Cart" Type="Self.Cart" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cart">
+              <PropertyRef Name="cartId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="cartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CartDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="CartDetail" Type="Self.CartDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="productId" />
+            </Principal>
+            <Dependent Role="CartDetail">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Method">
+          <End Role="Method" Type="Self.Method" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Method">
+              <PropertyRef Name="methodId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="methodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="typeId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="typeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductImages_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductImages" Type="Self.ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="productId" />
+            </Principal>
+            <Dependent Role="ProductImages">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShoesShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="Carts" EntityType="Self.Cart" />
+          <EntitySet Name="CartDetails" EntityType="Self.CartDetail" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Methods" EntityType="Self.Method" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductImages" EntityType="Self.ProductImage" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="Types" EntityType="Self.Type" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Product_Author" Association="Self.FK_Product_Author">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_User" Association="Self.FK_Cart_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CartDetail_Cart" Association="Self.FK_CartDetail_Cart">
+            <End Role="Cart" EntitySet="Carts" />
+            <End Role="CartDetail" EntitySet="CartDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Cart" Association="Self.FK_Invoice_Cart">
+            <End Role="Cart" EntitySet="Carts" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CartDetail_Product" Association="Self.FK_CartDetail_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="CartDetail" EntitySet="CartDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Method" Association="Self.FK_Invoice_Method">
+            <End Role="Method" EntitySet="Methods" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Type" Association="Self.FK_Product_Type">
+            <End Role="Type" EntitySet="Types" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductImages_Product" Association="Self.FK_ProductImages_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductImages" EntitySet="ProductImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_User" Association="Self.FK_Transaction_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ShoesShopModelStoreContainer" CdmEntityContainer="ShoesShopEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="ShoesShopModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="ShoesShopModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="authorId" ColumnName="authorId" />
+                <ScalarProperty Name="authorName" ColumnName="authorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="ShoesShopModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="cartId" ColumnName="cartId" />
+                <ScalarProperty Name="isPurchased" ColumnName="isPurchased" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CartDetails">
+            <EntityTypeMapping TypeName="ShoesShopModel.CartDetail">
+              <MappingFragment StoreEntitySet="CartDetail">
+                <ScalarProperty Name="cartId" ColumnName="cartId" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="ShoesShopModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="invoiceId" ColumnName="invoiceId" />
+                <ScalarProperty Name="cartId" ColumnName="cartId" />
+                <ScalarProperty Name="dateOfPayment" ColumnName="dateOfPayment" />
+                <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+                <ScalarProperty Name="methodId" ColumnName="methodId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Methods">
+            <EntityTypeMapping TypeName="ShoesShopModel.Method">
+              <MappingFragment StoreEntitySet="Method">
+                <ScalarProperty Name="methodId" ColumnName="methodId" />
+                <ScalarProperty Name="methodName" ColumnName="methodName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ShoesShopModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="releaseDate" ColumnName="releaseDate" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="authorId" ColumnName="authorId" />
+                <ScalarProperty Name="typeId" ColumnName="typeId" />
+                <ScalarProperty Name="isAvailable" ColumnName="isAvailable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductImages">
+            <EntityTypeMapping TypeName="ShoesShopModel.ProductImage">
+              <MappingFragment StoreEntitySet="ProductImages">
+                <ScalarProperty Name="imgId" ColumnName="imgId" />
+                <ScalarProperty Name="imgAbsolutPath" ColumnName="imgAbsolutPath" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="ShoesShopModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+                <ScalarProperty Name="transactionTime" ColumnName="transactionTime" />
+                <ScalarProperty Name="methodId" ColumnName="methodId" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Types">
+            <EntityTypeMapping TypeName="ShoesShopModel.Type">
+              <MappingFragment StoreEntitySet="Type">
+                <ScalarProperty Name="typeId" ColumnName="typeId" />
+                <ScalarProperty Name="typeName" ColumnName="typeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ShoesShopModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phoneNum" ColumnName="phoneNum" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="userAva" ColumnName="userAva" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

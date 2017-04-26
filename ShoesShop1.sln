@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoesShop1", "ShoesShop1\Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoesShop1.Tests", "ShoesShop1.Tests\ShoesShop1.Tests.csproj", "{9EEAEF1E-F5E1-4300-8132-4501F51FB0B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{777D83E6-C99D-4AB9-A98A-49E69602E33A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{87AB135D-7B22-42CA-8845-38A5CFCC78AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{9EEAEF1E-F5E1-4300-8132-4501F51FB0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EEAEF1E-F5E1-4300-8132-4501F51FB0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EEAEF1E-F5E1-4300-8132-4501F51FB0B3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{777D83E6-C99D-4AB9-A98A-49E69602E33A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{777D83E6-C99D-4AB9-A98A-49E69602E33A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{777D83E6-C99D-4AB9-A98A-49E69602E33A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{777D83E6-C99D-4AB9-A98A-49E69602E33A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87AB135D-7B22-42CA-8845-38A5CFCC78AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87AB135D-7B22-42CA-8845-38A5CFCC78AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87AB135D-7B22-42CA-8845-38A5CFCC78AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87AB135D-7B22-42CA-8845-38A5CFCC78AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

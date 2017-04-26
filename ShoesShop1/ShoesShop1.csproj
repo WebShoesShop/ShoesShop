@@ -1258,9 +1258,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{777d83e6-c99d-4ab9-a98a-49e69602e33a}</Project>
-      <Name>Model</Name>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{87ab135d-7b22-42ca-8845-38a5cfcc78af}</Project>
+      <Name>DAO</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -174,3 +174,6 @@ C:\Users\lehuy\Downloads\ShoesShop1\ShoesShop1\bin\Microsoft.Owin.Security.Micro
 C:\Users\lehuy\Downloads\ShoesShop1\ShoesShop1\obj\Debug\ShoesShop1.csprojResolveAssemblyReference.cache
 C:\Users\lehuy\Downloads\ShoesShop1\ShoesShop1\obj\Debug\ShoesShop1.dll
 C:\Users\lehuy\Downloads\ShoesShop1\ShoesShop1\obj\Debug\ShoesShop1.pdb
+C:\Users\lehuy\OneDrive\Tài liệu\GitHub\ShoesShop\ShoesShop1\obj\Debug\ShoesShop1.csprojResolveAssemblyReference.cache
+C:\Users\lehuy\OneDrive\Tài liệu\GitHub\ShoesShop\ShoesShop1\obj\Debug\ShoesShop1.dll
+C:\Users\lehuy\OneDrive\Tài liệu\GitHub\ShoesShop\ShoesShop1\obj\Debug\ShoesShop1.pdb

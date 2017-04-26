@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Model.EF;
-using Model.Dao;
+using DAO.DAO.Admin;
+using DAO.Entities;
 using ShoesShop1.Common;
 using PagedList;
 
@@ -27,7 +27,7 @@ namespace ShoesShop1.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Model.EF.Admin admin)
+        public ActionResult Create(DAO.Entities.Admin admin)
         {
             var dao = new AdminDao();
 
@@ -52,7 +52,7 @@ namespace ShoesShop1.Areas.Admin.Controllers
             return View(admin);
         }
         [HttpPost]
-        public ActionResult Edit(Model.EF.Admin admin)
+        public ActionResult Edit(DAO.Entities.Admin admin)
         {
             var dao = new AdminDao();
 
