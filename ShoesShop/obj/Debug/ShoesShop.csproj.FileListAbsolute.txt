@@ -82,3 +82,7 @@ F:\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\ShoesShop\ShoesShop\obj\Debug\ShoesShop.csprojResolveAssemblyReference.cache
 F:\ShoesShop\ShoesShop\obj\Debug\ShoesShop.dll
 F:\ShoesShop\ShoesShop\obj\Debug\ShoesShop.pdb
+F:\ShoesShop\ShoesShop\bin\PagedList.dll
+F:\ShoesShop\ShoesShop\bin\PagedList.Mvc.dll
+F:\ShoesShop\ShoesShop\bin\PagedList.xml
+F:\ShoesShop\ShoesShop\bin\PagedList.Mvc.xml

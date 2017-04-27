@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.Dao;
+using ShoesShop.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +15,23 @@ namespace ShoesShop.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult Create()
+        public ActionResult Create(Model.EF.User user)
         {
-            return View()
+            var dao = new UserDao();
+
+            var encrypt = Encrypt.MD5Hash(user.password);
+            user.password = encrypt;
+
+            int id = dao.InsetUser(user);
+            if (id > 0)
+            {
+                return RedirectToAction("Index", "User");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Them nguoi dung khong thanh cong");
+            }
+            return View("Index","Home");
         }
     }
 }
