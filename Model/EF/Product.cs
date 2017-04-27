@@ -27,18 +27,21 @@ namespace Model.EF
         [Column(TypeName = "date")]
         public DateTime? startDate { get; set; }
 
-        public int? authorId { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? price { get; set; }
 
-        public int? typeId { get; set; }
+        public int? manufacturerId { get; set; }
+
+        public int? categoryId { get; set; }
 
         public bool? isAvailable { get; set; }
-
-        public virtual Author Author { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartDetail> CartDetails { get; set; }
 
-        public virtual Type Type { get; set; }
+        public virtual Category Category { get; set; }
+
+        public virtual Manufacturer Manufacturer { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductImage> ProductImages { get; set; }

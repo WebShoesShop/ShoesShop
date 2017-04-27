@@ -12,7 +12,7 @@ namespace Model.EF
         public int adminId { get; set; }
 
         [StringLength(100)]
-        [Display (Name = "Ten dang nhap")]
+        [Display(Name = "Ten dang nhap")]
         public string adminName { get; set; }
 
         [StringLength(100)]
@@ -22,6 +22,7 @@ namespace Model.EF
         [StringLength(50)]
         [Display(Name = "Mat khau")]
         public string password { get; set; }
+
         [Display(Name = "Quyen truy cap")]
         public int? role { get; set; }
     }

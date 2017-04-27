@@ -20,6 +20,8 @@ namespace Model.EF
 
         public int? userId { get; set; }
 
+        public virtual Method Method { get; set; }
+
         public virtual User User { get; set; }
     }
 }

@@ -9,9 +9,12 @@ namespace Model.EF
     [Table("Invoice")]
     public partial class Invoice
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int invoiceId { get; set; }
 
-        public int? cartId { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int cartId { get; set; }
 
         public DateTime? dateOfPayment { get; set; }
 
