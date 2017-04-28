@@ -56,3 +56,5 @@ F:\ShoesShop\ShoesShop.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 F:\ShoesShop\ShoesShop.Tests\obj\Debug\ShoesShop.Tests.csprojResolveAssemblyReference.cache
 F:\ShoesShop\ShoesShop.Tests\obj\Debug\ShoesShop.Tests.dll
 F:\ShoesShop\ShoesShop.Tests\obj\Debug\ShoesShop.Tests.pdb
+F:\ShoesShop\ShoesShop.Tests\bin\Debug\PagedList.dll
+F:\ShoesShop\ShoesShop.Tests\bin\Debug\PagedList.xml

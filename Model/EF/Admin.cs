@@ -12,18 +12,14 @@ namespace Model.EF
         public int adminId { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Ten dang nhap")]
         public string adminName { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Email")]
         public string email { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Mat khau")]
         public string password { get; set; }
 
-        [Display(Name = "Quyen truy cap")]
         public int? role { get; set; }
     }
 }

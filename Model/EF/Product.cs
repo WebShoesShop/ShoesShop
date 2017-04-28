@@ -36,6 +36,12 @@ namespace Model.EF
 
         public bool? isAvailable { get; set; }
 
+        [Column(TypeName = "text")]
+        public string description { get; set; }
+
+        [Column(TypeName = "text")]
+        public string introduction { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartDetail> CartDetails { get; set; }
 

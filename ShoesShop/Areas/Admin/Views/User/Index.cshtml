@@ -1,19 +1,19 @@
 ﻿
-@model PagedList.IPagedList<Model.EF.Admin>
+@model PagedList.IPagedList<Model.EF.User>
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Quan ly admin ";
+    ViewBag.Title = "Quan ly nguoi dung ";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 @section header{
-    Danh sach Admin
+    Danh sach nguoi dung
 }
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-14">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Admin
+                User
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -24,6 +24,9 @@
                                 <th>Acount</th>
                                 <th>Email</th>
                                 <th>Password</th>
+                                <th>Phone Number</th>
+                                <th>Money</th>
+                                <th>Adress</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -31,24 +34,29 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>@item.adminName</td>
+                                    <td>@item.userName</td>
                                     <td>@item.email</td>
                                     <td>@item.password</td>
+                                    <td>@item.phoneNum</td>
+                                    <td>@item.money</td>
+                                    <td>@item.address</td>
+
                                     <td>
-                                        <a href="Edit/@item.adminId">Sua</a>
-                                        @Ajax.ActionLink("Xoa", "Delete","Admins", new { @id = @item.adminId }, new AjaxOptions
-                                   {
-                                       Confirm = "Ban co muon xoa ban ghi khong?",
-                                       OnComplete = "$('row_" + @item.adminId + "').remove()",
-                                       HttpMethod = "Delete"
-                                   }
+                                        <a href="Edit/@item.userId">Sua</a>
+                                    
+                                        @Ajax.ActionLink("Xoa", "Delete","User", new { @id = @item.userId }, new AjaxOptions
+                                       { 
+                                           Confirm = "Ban co muon xoa ban ghi khong?",
+                                           OnComplete = "$('row_" + @item.userId + "').remove()",
+                                           HttpMethod = "Delete"
+                                       }
                                        )
                                     </td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    @Html.PagedListPager(Model, page=> Url.Action("Index",new { page }));
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }));
                 </div>
                 <!-- /.table-responsive -->
             </div>

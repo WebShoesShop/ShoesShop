@@ -45,6 +45,14 @@ namespace Model.EF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Product>()
+                .Property(e => e.description)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.introduction)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Product>()
                 .HasMany(e => e.CartDetails)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);

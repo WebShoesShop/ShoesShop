@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Dao\AdminDao.cs" />
     <Compile Include="Dao\LoginDao.cs" />
+    <Compile Include="Dao\ProductDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="EF\Admin.cs" />
     <Compile Include="EF\Cart.cs" />
@@ -84,6 +85,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
