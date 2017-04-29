@@ -59,11 +59,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dao\AdminDao.cs" />
-    <Compile Include="Dao\LoginDao.cs" />
-    <Compile Include="Dao\ProductDao.cs" />
-    <Compile Include="Dao\UserDao.cs" />
+    <Compile Include="Dao\Admin\AdminDao.cs" />
+    <Compile Include="Dao\DBConnection.cs" />
+    <Compile Include="Dao\UI\BestSellingDao.cs" />
+    <Compile Include="Dao\UI\CategoryDao.cs" />
+    <Compile Include="Dao\Admin\LoginDao.cs" />
+    <Compile Include="Dao\Admin\ProductDao.cs" />
+    <Compile Include="Dao\Admin\UserDao.cs" />
+    <Compile Include="Dao\UI\ProductDao.cs" />
     <Compile Include="EF\Admin.cs" />
+    <Compile Include="EF\BestSelling.cs" />
     <Compile Include="EF\Cart.cs" />
     <Compile Include="EF\CartDetail.cs" />
     <Compile Include="EF\Category.cs" />
