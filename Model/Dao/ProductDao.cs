@@ -27,6 +27,8 @@ namespace Model.Dao
             product.releaseDate = entity.releaseDate;
             product.startDate = entity.startDate;
             product.price = entity.price;
+            product.categoryId = entity.categoryId;
+            product.manufacturerId = entity.manufacturerId;
             product.isAvailable = entity.isAvailable;
             product.description = entity.description;
             product.introduction = entity.introduction;
