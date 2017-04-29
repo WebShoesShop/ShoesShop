@@ -66,11 +66,7 @@ ddsmoothmenu.init({
                         <li>
                             @Html.ActionLink("Product", "Product", "Home")
                             <ul>
-                                <li><a href="#submenu1">Sub menu 1</a></li>
-                                <li><a href="#submenu2">Sub menu 2</a></li>
-                                <li><a href="#submenu3">Sub menu 3</a></li>
-                                <li><a href="#submenu4">Sub menu 4</a></li>
-                                <li><a href="#submenu5">Sub menu 5</a></li>
+                                @{Html.RenderAction("Manufacturer", "Home"); }
                             </ul>
                         </li>
                         <li>
@@ -101,7 +97,7 @@ ddsmoothmenu.init({
                         @{Html.RenderAction("Category", "Home"); }
                     </div>
                     <div class="sidebar_box">
-                        @Html.Partial("~/Views/Shared/_BestSeller.cshtml")
+                        @{Html.RenderAction("BestSelling", "Home"); }
                     </div>
                 </div>
 
@@ -115,10 +111,10 @@ ddsmoothmenu.init({
 
             <div id="templatemo_footer">
                 <p>
-                    <a href="#">Home</a> | <a href="#">Products</a> | <a href="#">About</a> | <a href="#">FAQs</a> | <a href="#">Checkout</a> | <a href="#">Contact Us</a>
+                    @Html.ActionLink("Home", "Home", "Home") | @Html.ActionLink("Product", "Product", "Home") | @Html.ActionLink("About", "About", "Home") | @Html.ActionLink("FAQs", "FAQs", "Home") | @Html.ActionLink("Checkout", "Checkout", "Home") | @Html.ActionLink("Contact Us", "Contact", "Home")
                 </p>
 
-                No Copyright © 2017 <a href="#">H2L And Friends</a> <!-- Credit: www.templatemo.com -->
+                No Copyright © 2017 <a href="https://www.google.com.vn/?gfe_rd=cr&ei=Gq4EWZOnK5TM8geDmqigDg&gws_rd=ssl">H2L And Friends</a> <!-- Credit: www.templatemo.com -->
             </div> <!-- END of templatemo_footer -->
 
         </div> <!-- END of templatemo_wrapper -->

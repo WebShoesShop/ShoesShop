@@ -22,6 +22,8 @@ namespace ShoesShop.Models
         private String introduction;
         private String imgString;
 
+        private static String defaultImage = "Content/images/templatemo_image_01.jpg";
+
         public Product()
         {
         }
@@ -32,7 +34,7 @@ namespace ShoesShop.Models
             this.ProductId = id;
             this.ProductName = name;
             this.ReleaseDate = (DateTime)releaseTime;
-            this.price = (Decimal) price;
+            this.price = (Decimal)price;
             this.CategoryName = catName;
             this.ManufacturerName = manufacturerName;
             this.ImgString = imgStr;
@@ -41,26 +43,85 @@ namespace ShoesShop.Models
             this.Introduction = introduction;
         }
 
+        public Product(Int32 id, String name, Decimal? price, String imgStr)
+        {
+            this.ProductId = id;
+            this.ProductName = name;
+            this.price = (Decimal)price;
+            this.ImgString = imgStr;
+        }
 
         public Product(Int32 id, String name, Decimal? price, String manufacturerName, String imgStr, String description)
         {
             this.ProductId = id;
             this.ProductName = name;
-            this.price = (Decimal) price;
+            this.price = (Decimal)price;
             this.ManufacturerName = manufacturerName;
             this.ImgString = imgStr;
             this.description = description;
         }
-        
 
-        public static List<Product> getListProductById(int id)
+        public static List<Product> getListBestSellingProduct()
+        {
+            List<Product> list = new List<Product>();
+            List<Model.EF.BestSelling> listBestSelling = Model.Dao.UI.BestSellingDao.getBestSellingProduct();
+            foreach (Model.EF.BestSelling item in listBestSelling)
+            {
+                Product obj = getProductBasicInfo(item.ProductId);
+                list.Add(obj);
+            }
+            return list;
+        }
+
+        public static Product getProductBasicInfo(int id)
+        {
+            Product result = null;
+            IQueryable<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getProductInfo(id);
+
+            Model.EF.Product item = listProduct.First();
+            String imgString = defaultImage;
+            if (item.productAva != null && !"".Equals(item.productAva.Trim()))
+            {
+                imgString = item.productAva;
+            }
+            result = new Product(item.productId, item.productName,
+                item.price, imgString);
+
+
+            return result;
+        }
+
+        public static Product getDetailProduct(int id)
+        {
+            Product result = null;
+            IQueryable<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getProductInfo(id);
+
+            Model.EF.Product item = listProduct.First();
+            String imgString = defaultImage;
+            if (item.productAva != null && !"".Equals(item.productAva.Trim()))
+            {
+                imgString = item.productAva;
+            }
+            result = new Product(item.productId, item.productName,
+                item.price, item.Manufacturer.manufacturerName, imgString, item.description);
+
+
+            return result;
+        }
+
+        public static List<Product> getListProductByManufatorId(int id)
         {
             List<Product> result = new List<Product>();
-            IQueryable<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getListProductById(id);
+            IQueryable<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getListProductByManufatorId(id);
             foreach (Model.EF.Product item in listProduct)
             {
-                Product product = new Product(item.productId, item.productName, 
-                    item.price, item.Manufacturer.manufacturerName, "Content/images/product/01" + ".jpg", item.description);
+                String imgString = defaultImage;
+                if (item.productAva != null && !"".Equals(item.productAva.Trim()))
+                {
+                    imgString = item.productAva;
+                }
+                Product product = new Product(item.productId, item.productName,
+                    item.price, item.Manufacturer.manufacturerName, imgString, item.description);
                 result.Add(product);
             }
 
@@ -75,8 +136,13 @@ namespace ShoesShop.Models
 
             foreach (Model.EF.Product item in listProduct)
             {
+                String imgString = defaultImage;
+                if (item.productAva != null && !"".Equals(item.productAva.Trim()))
+                {
+                    imgString = item.productAva;
+                }
                 Product product = new Product(item.productId, item.productName,
-                    item.price, item.Manufacturer.manufacturerName, "Content/images/product/01" + ".jpg", item.description);
+                    item.price, item.Manufacturer.manufacturerName, imgString, item.description);
                 result.Add(product);
             }
 

@@ -16,6 +16,7 @@ namespace Model.Dao.UI
         {
             List<BestSelling> list = new List<BestSelling>();
             SqlConnection connect = DBConnection.getInstance();
+            connect.Open();
             SqlCommand command = new SqlCommand(getBestSelling, connect);
             SqlDataReader rdr = command.ExecuteReader();
             while (rdr.Read())
@@ -25,6 +26,7 @@ namespace Model.Dao.UI
                 BestSelling obj = new BestSelling(productId, selledNum);
                 list.Add(obj);
             }
+            connect.Close();
             return list;
         }
     }

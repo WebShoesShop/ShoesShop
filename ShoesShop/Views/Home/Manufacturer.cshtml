@@ -1,0 +1,7 @@
+﻿@using ShoesShop.Models;
+@model List<Manufacturer>
+
+@foreach (var item in Model)
+{
+    <li>@Html.ActionLink(@item.ManufacturerName, "ListProductByManufacturerId", "Home", new { id = @item.ManufacturerId }, null)</li>
+}

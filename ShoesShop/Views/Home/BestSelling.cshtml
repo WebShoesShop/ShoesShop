@@ -1,1 +1,19 @@
-﻿
+﻿@using ShoesShop.Models;
+@model List<Product>
+
+<span class="bottom"></span>
+<h3>Bestsellers </h3>
+<div class="content">
+@foreach (var item in Model)
+{
+    <div class="bs_box">
+        <a href="#"><img src=@item.ImgString alt="image" /></a>
+        <h4><a href="#">@item.ProductName</a></h4>
+        <p class="price">@item.Price</p>
+        <div class="cleaner"></div>
+    </div>
+}
+
+
+</div>
+

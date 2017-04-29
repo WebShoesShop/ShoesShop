@@ -52,19 +52,22 @@ namespace ShoesShop.Controllers
 
         public ActionResult BestSelling()
         {
-            List<BestSelling> list = Models.BestSelling.getList();
+            List<Product> list = Models.Product.getListBestSellingProduct();
             return PartialView(list);
         }
-
-
-        public ActionResult ListProduct()
+        
+        public ActionResult ListProduct(int id)
         {
-            //String categoryId = Request.QueryString["categoryId"];
-            //int id = Int32.Parse(categoryId);
-            //List<Product> list = Models.Product.getListProductById(id);
-            
-            //return View("Home", list);
-            return View("Home");
+            List<Product> list = Models.Product.getListProductByManufatorId(id);
+
+            return View("Home", list);
+        }
+
+        public ActionResult Manufacturer()
+        {
+            List<Manufacturer> list = Models.Manufacturer.getList();
+
+            return PartialView(list);
         }
     }
 }

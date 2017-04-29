@@ -13,10 +13,18 @@ namespace Model.Dao.UI
         private static ShoesShopOnline db = new ShoesShopOnline();
         private static String GET_PRODUCT_NAME = "select productName from Product where productId = ";
 
-        public static IQueryable<Product> getListProductById(int id)
+        public static IQueryable<Product> getListProductByManufatorId(int id)
         {
             var query = (from product in db.Products
-                         where product.productId == id && product.isAvailable == true
+                         where product.manufacturerId == id && product.isAvailable == true
+                         select product);
+            return query;
+        }
+
+        public static IQueryable<Product> getProductInfo(int productId)
+        {
+            var query = (from product in db.Products
+                         where product.productId == productId
                          select product);
             return query;
         }
@@ -32,9 +40,12 @@ namespace Model.Dao.UI
         public static string getProductName(int productId)
         {
             SqlConnection connect = DBConnection.getInstance();
-            SqlCommand command = new SqlCommand(GET_PRODUCT_NAME + 1, connect);
+            connect.Open();
+            SqlCommand command = new SqlCommand(GET_PRODUCT_NAME + productId, connect);
             SqlDataReader rdr = command.ExecuteReader();
+            rdr.Read();
             string productName = rdr.GetString(0);
+            connect.Close();
             return productName;
         }
     }
