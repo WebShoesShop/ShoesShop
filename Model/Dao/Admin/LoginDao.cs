@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model.EF;
 
-namespace Model.Dao
+namespace Model.Dao.Admin
 {
     public class LoginDao
     {
@@ -14,7 +14,7 @@ namespace Model.Dao
         {
             db = new ShoesShopOnline();
         }
-        public Admin GetByName(string adminName)
+        public Model.EF.Admin GetByName(string adminName)
         {
             return db.Admins.SingleOrDefault(x => x.adminName == adminName);
         }

@@ -42,6 +42,9 @@ namespace Model.EF
         [Column(TypeName = "text")]
         public string introduction { get; set; }
 
+        [StringLength(100)]
+        public string productAva { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartDetail> CartDetails { get; set; }
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Model.Dao;
 using ShoesShop.Common;
 using ShoesShop.Areas.Admin.Models;
+using Model.Dao.Admin;
 
 namespace ShoesShop.Areas.Admin.Controllers
 {

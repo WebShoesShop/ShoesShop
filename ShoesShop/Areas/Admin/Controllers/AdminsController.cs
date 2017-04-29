@@ -1,4 +1,4 @@
-﻿using Model.Dao;
+﻿using Model.Dao.Admin;
 using ShoesShop.Common;
 using System;
 using System.Collections.Generic;

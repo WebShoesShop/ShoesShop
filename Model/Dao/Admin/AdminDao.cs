@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Model.EF;
 using PagedList;
 
-namespace Model.Dao
+namespace Model.Dao.Admin
 {
     public class AdminDao
     {
@@ -15,13 +15,13 @@ namespace Model.Dao
         {
             db = new ShoesShopOnline();
         }
-        public int InsertAdmin(Admin admin)
+        public int InsertAdmin(Model.EF.Admin admin)
         {
             db.Admins.Add(admin);
             db.SaveChanges();
             return admin.adminId;
         }
-        public bool Update(Admin entity)
+        public bool Update(Model.EF.Admin entity)
         {
             try
             {
@@ -38,11 +38,11 @@ namespace Model.Dao
                 return false;
             }
         }
-        public Admin GetByID(int id)
+        public Model.EF.Admin GetByID(int id)
         {
             return db.Admins.SingleOrDefault(x => x.adminId == id);
         }
-        public IEnumerable<Admin> ListAllPagding(int page, int pageSize)
+        public IEnumerable<Model.EF.Admin> ListAllPagding(int page, int pageSize)
         {
             return db.Admins.OrderByDescending(x => x.adminName).ToPagedList(page, pageSize);
         }

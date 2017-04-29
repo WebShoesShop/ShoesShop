@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Model.EF;
 using PagedList;
 
-namespace Model.Dao
+namespace Model.Dao.Admin
 {
     public class UserDao
     {

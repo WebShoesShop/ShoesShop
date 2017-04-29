@@ -1,4 +1,4 @@
-﻿using Model.Dao;
+﻿using Model.Dao.Admin;
 using Model.EF;
 using ShoesShop.Common;
 using System;
@@ -35,6 +35,11 @@ namespace ShoesShop.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Khong them san pham thanh cong");
             }
             return View("Index","Home");
+        }
+        public void SetViewBag()
+        {
+            var dao = new CategoryDao();
+            ViewBag.categoryId = new SelectList(dao.ListAll(),"categoryId","","");
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model.EF;
 
-namespace Model.Dao
+namespace Model.Dao.Admin
 {
     public class ProductDao
     {
@@ -29,6 +29,7 @@ namespace Model.Dao
             product.price = entity.price;
             product.categoryId = entity.categoryId;
             product.manufacturerId = entity.manufacturerId;
+            product.productAva = entity.productAva;
             product.isAvailable = entity.isAvailable;
             product.description = entity.description;
             product.introduction = entity.introduction;

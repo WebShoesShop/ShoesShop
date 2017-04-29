@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao\Admin\AdminDao.cs" />
+    <Compile Include="Dao\Admin\CategoryDao.cs" />
     <Compile Include="Dao\DBConnection.cs" />
     <Compile Include="Dao\UI\BestSellingDao.cs" />
     <Compile Include="Dao\UI\CategoryDao.cs" />
