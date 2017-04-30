@@ -66,5 +66,9 @@ namespace Model.Dao.Admin
                 return false;
             }
         }
+        public List<Product> ListAll()
+        {
+            return db.Products.ToList();
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace ShoesShop.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            SetProduct();
             return View();
         }
         [HttpPost]
@@ -62,6 +63,11 @@ namespace ShoesShop.Areas.Admin.Controllers
             new ProductImgDao().DeleteProductImg(id);
             return RedirectToAction("Index", "ProductImg");
 
+        }
+        public void SetProduct(int? selectedId = null)
+        {
+            var dao = new ProductDao();
+            ViewBag.productId = new SelectList(dao.ListAll(), "productId", "productName", "selectedId");
         }
     }
 }
