@@ -53,6 +53,8 @@ namespace ShoesShop.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
+            SetCategory();
+            SetManufacturer();
             var pro = new ProductDao().GetById(id);
             return View(pro);
         }
