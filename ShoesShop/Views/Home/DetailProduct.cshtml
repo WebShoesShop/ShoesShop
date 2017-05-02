@@ -1,0 +1,28 @@
+﻿@using ShoesShop.Models;
+@model Product
+
+@{
+    ViewBag.Title = "DetailProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var item = Model;
+    String status = "Hết hàng";
+    if (item.IsAvailable)
+    {
+        status = "Có sẵn";
+    }
+    String[] datedata = @item.ReleaseDate.ToString().Split(' ');
+    String date = datedata[0];
+ }
+<img src=@item.ImgString alt="image"/>
+<h3>Tên sản phẩm: @item.ProductName</h3>
+<h3>Nhà sản xuất: @item.ManufacturerName</h3>
+<h3>Ngày ra mắt : @date</h3>
+<h3>Loại        : @item.CategoryName</h3>
+<h3>Giá         : @item.Price</h3>
+<h3>Tình trạng  : @status</h3>
+<h3>Giới thiệu  : @item.Introduction</h3>
+<h3>Chi tiết    : @item.Description</h3>
+
+

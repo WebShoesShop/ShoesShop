@@ -968,6 +968,7 @@
     <Content Include="Views\Home\Category.cshtml" />
     <Content Include="Views\Home\BestSelling.cshtml" />
     <Content Include="Views\Home\Manufacturer.cshtml" />
+    <Content Include="Views\Home\DetailProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

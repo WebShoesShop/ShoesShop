@@ -176,3 +176,5 @@ C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.Twitter.
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\ShoesShop\ShoesShop\bin\CKFinder.dll
 F:\ShoesShop\ShoesShop\bin\CKFinder.pdb
+C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\CKFinder.dll
+C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\CKFinder.pdb

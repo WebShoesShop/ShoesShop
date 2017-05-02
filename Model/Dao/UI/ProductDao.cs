@@ -21,6 +21,14 @@ namespace Model.Dao.UI
             return query;
         }
 
+        public static IQueryable<Product> getListProductByCategoryId(int id)
+        {
+            var query = (from product in db.Products
+                         where product.categoryId == id && product.isAvailable == true
+                         select product);
+            return query;
+        }
+
         public static IQueryable<Product> getProductInfo(int productId)
         {
             var query = (from product in db.Products

@@ -7,8 +7,8 @@
 @foreach (var item in Model)
 {
     <div class="bs_box">
-        <a href="#"><img src=@item.ImgString alt="image" /></a>
-        <h4><a href="#">@item.ProductName</a></h4>
+        <a href="@Url.Action("DetailProduct", "Home", new { id = @item.ProductId })"><img src=@item.ImgString alt="image" /></a>
+        <h4>@Html.ActionLink(@item.ProductName, "DetailProduct", "Home", new { id = @item.ProductId }, null)</h4>
         <p class="price">@item.Price</p>
         <div class="cleaner"></div>
     </div>

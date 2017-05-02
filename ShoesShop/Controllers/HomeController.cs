@@ -63,11 +63,31 @@ namespace ShoesShop.Controllers
             return View("Home", list);
         }
 
+        public ActionResult ListProductByCategoryId(int id)
+        {
+            List<Product> list = Models.Product.getListProductByCategoryId(id);
+
+            return View("Home", list);
+        }
+
+        public ActionResult ListProductByManufacturerId(int id)
+        {
+            List<Product> list = Models.Product.getListProductByManufatorId(id);
+
+            return View("Home", list);
+        }
+
         public ActionResult Manufacturer()
         {
             List<Manufacturer> list = Models.Manufacturer.getList();
 
             return PartialView(list);
+        }
+
+        public ActionResult DetailProduct(int id)
+        {
+            Product product = Models.Product.getDetailProduct(id); 
+            return View(product);
         }
     }
 }
