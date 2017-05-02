@@ -56,5 +56,9 @@ namespace Model.Dao.Admin
                 return false;
             }
         }
+        public List<User> ListAll()
+        {
+            return db.Users.ToList();
+        }
     }
 }

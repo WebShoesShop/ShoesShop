@@ -36,6 +36,12 @@
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
+                @if (TempData["AlterMessage"] != null)
+                {
+                <div id="AlterBox" class="alter @TempData["AlterType"] hide">
+                    @TempData["AlterMessage"];
+                </div>
+                }
                 @RenderBody();
                 <!-- /.row -->
             </div>

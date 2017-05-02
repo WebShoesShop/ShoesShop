@@ -19,30 +19,40 @@ namespace Model.EF
         public int productId { get; set; }
 
         [StringLength(100)]
+        [Display(Name = "Product Name")]
         public string productName { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Release Date")]
         public DateTime? releaseDate { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Start Date")]
         public DateTime? startDate { get; set; }
 
         [Column(TypeName = "money")]
+        [Display(Name = "Price")]
         public decimal? price { get; set; }
 
+        [Display(Name = "Manufacturer")]
         public int? manufacturerId { get; set; }
 
+        [Display(Name = "Category")]
         public int? categoryId { get; set; }
 
+        [Display(Name = "IsAvailable")]
         public bool? isAvailable { get; set; }
 
         [Column(TypeName = "text")]
+        [Display(Name = "Description")]
         public string description { get; set; }
 
         [Column(TypeName = "text")]
+        [Display(Name = "Introduction")]
         public string introduction { get; set; }
 
         [StringLength(100)]
+        [Display(Name = "Product Ava")]
         public string productAva { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

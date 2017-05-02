@@ -40,6 +40,7 @@ namespace ShoesShop.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
+            SetProduct();
             var dao = new ProductImgDao().GetById(id);
             return View(dao);
         }

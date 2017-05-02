@@ -21,5 +21,19 @@ namespace ShoesShop.Areas.Admin.Controllers
             }
             base.OnActionExecuted(filterContext);
         }
+        protected void SetAll(string message, string type)
+        {
+            TempData["AlterMessage"] = message;
+            if (type == "success")
+            {
+                TempData["AlterType"] = "alert-success";
+            }else if(type=="waring"){
+                TempData["AlterType"] = "alert-warning";
+            }else if (type == "error")
+            {
+                TempData["AlterType"] = "alter-danger";
+            }
+        }
     }
+     
 }

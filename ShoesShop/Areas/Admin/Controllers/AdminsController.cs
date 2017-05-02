@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ShoesShop.Areas.Admin.Controllers
 {
-    public class AdminsController : Controller
+    public class AdminsController : BaseController
     {
         // GET: Admin/Admins
         public ActionResult Index(int page = 1, int pageSize = 10)
@@ -32,6 +32,7 @@ namespace ShoesShop.Areas.Admin.Controllers
             int id = dao.InsertAdmin(admin);
             if (id > 0)
             {
+                SetAll("Them thanh cong", "success");
                 return RedirectToAction("Index", "Admin");
             }else
             {
@@ -56,6 +57,7 @@ namespace ShoesShop.Areas.Admin.Controllers
             var result = dao.Update(admin);
             if (result)
             {
+                SetAll("Sua thanh cong", "success");
                 return RedirectToAction("Index", "Admins");
             }
             else
