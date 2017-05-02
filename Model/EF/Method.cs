@@ -18,8 +18,8 @@ namespace Model.EF
 
         public int methodId { get; set; }
 
+        [Display(Name = "Method Name")]
         [StringLength(100)]
-        [Display(Name ="Method Name")]
         public string methodName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
