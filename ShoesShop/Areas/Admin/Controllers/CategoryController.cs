@@ -23,7 +23,7 @@ namespace ShoesShop.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CreateCategory(Category cate)
+        public ActionResult Create(Category cate)
         {
             var dao = new CategoryDao();
             int id = dao.InsertCategory(cate);
