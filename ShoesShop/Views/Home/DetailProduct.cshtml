@@ -7,22 +7,61 @@
 }
 @{
     var item = Model;
-    String status = "Hết hàng";
+    String status = "Out of stock";
     if (item.IsAvailable)
     {
-        status = "Có sẵn";
+        status = "In stock";
     }
     String[] datedata = @item.ReleaseDate.ToString().Split(' ');
     String date = datedata[0];
  }
-<img src=@item.ImgString alt="image"/>
-<h3>Tên sản phẩm: @item.ProductName</h3>
-<h3>Nhà sản xuất: @item.ManufacturerName</h3>
-<h3>Ngày ra mắt : @date</h3>
-<h3>Loại        : @item.CategoryName</h3>
-<h3>Giá         : @item.Price</h3>
-<h3>Tình trạng  : @status</h3>
-<h3>Giới thiệu  : @item.Introduction</h3>
-<h3>Chi tiết    : @item.Description</h3>
+
+<h1>Product Detail</h1>
+<div class="content_half float_l">
+    <a rel="lightbox[portfolio]" href=@item.ImgString><img src=@item.ImgString alt="image" /></a>
+</div>
+<div class="content_half float_r">
+    <table>
+        <tr>
+            <td>Model:</td>
+            <td>@item.ProductName</td>
+        </tr>
+        <tr>
+            <td>Manufacturer:</td>
+            <td>@item.ManufacturerName</td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>@item.CategoryName</td>
+        </tr>
+        <tr>
+            <td>Release Date:</td>
+            <td>@date</td>
+        </tr>
+        <tr>
+            <td width="160">Price:</td>
+            <td>@item.Price VNĐ</td>
+        </tr>
+        <tr>
+            <td>Availability:</td>
+            <td>@status</td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td><input type="text" value="1" style="width: 20px; text-align: right" /></td>
+        </tr>
+    </table>
+    <div class="cleaner h20"></div>
+
+    <a href="shoppingcart.html" class="addtocart"></a>
+
+</div>
+<div class="cleaner h30"></div>
+<h5>Product Introduction</h5>
+<p>@item.Introduction</p>
+<div class="cleaner h30"></div>
+<h5>Product Description</h5>
+<p>@item.Description</p>
+
 
 
