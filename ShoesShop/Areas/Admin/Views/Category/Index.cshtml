@@ -1,19 +1,19 @@
 ﻿
-@model PagedList.IPagedList<Model.EF.Cart>
+@model PagedList.IPagedList<Model.EF.Category>
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Quan ly cart ";
+    ViewBag.Title = "Quan ly category ";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 @section header{
-    List Cart
+    List Category
 }
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-               
+        
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -21,8 +21,7 @@
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>Purchased</th>
-                                <th>User</th>
+                                <th>Category</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -30,14 +29,14 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>@item.isPurchased</td>
-                                    <td>@item.userId</td>
+                                    <td>@item.categoryName</td>
+                                   
                                     <td>
-                                        <a href="Edit/@item.cartId">Sua</a>
-                                        @Ajax.ActionLink("Xoa", "Delete", "Cart", new { @id = @item.cartId }, new AjaxOptions
+                                        <a href="Edit/@item.categoryId">Sua</a>
+                                        @Ajax.ActionLink("Xoa", "Delete", "Category", new { @id = @item.categoryId }, new AjaxOptions
                                    {
                                        Confirm = "Ban co muon xoa ban ghi khong?",
-                                       OnComplete = "$('row_" + @item.cartId + "').remove()",
+                                       OnComplete = "$('row_" + @item.categoryId + "').remove()",
                                        HttpMethod = "Delete"
                                    }
                                        )

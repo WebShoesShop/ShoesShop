@@ -8,59 +8,51 @@ using System.Web.Mvc;
 
 namespace ShoesShop.Areas.Admin.Controllers
 {
-    public class CartController : Controller
+    public class CategoryController : Controller
     {
-        // GET: Admin/Cart
+        // GET: Admin/Category
         public ActionResult Index(int page = 1, int pageSize = 10)
         {
-            var dao = new CartDao();
+            var dao = new CategoryDao();
             var model = dao.ListAllPagding(page, pageSize);
             return View(model);
         }
         [HttpGet]
         public ActionResult Create()
         {
-            SetUser();
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Cart cart)
+        public ActionResult CreateCategory(Category cate)
         {
-            var dao = new CartDao();
-            int id = dao.InsertCart(cart);
+            var dao = new CategoryDao();
+            int id = dao.InsertCategory(cate);
             if (id > 0)
             {
 
-                return RedirectToAction("Index", "Cart");
+                return RedirectToAction("Index", "Category");
             }
             else
             {
-                ModelState.AddModelError("", "Khong them san pham thanh cong");
+                ModelState.AddModelError("", "Them khong thanh cong");
             }
             return View("Index", "Home");
         }
-        public void SetUser(int? selectedId = null)
-        {
-            var dao = new UserDao();
-            ViewBag.userId = new SelectList(dao.ListAll(), "userId", "userName", "selectedId");
-        }
-
+        
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            SetUser();
-           
-            var cart = new CartDao().GetById(id);
-            return View(cart);
+            var cate = new CategoryDao().GetById(id);
+            return View(cate);
         }
         [HttpPost]
-        public ActionResult Edit(Cart cart)
+        public ActionResult Edit(Category cate)
         {
-            var dao = new CartDao();
-            bool result = dao.UpdateCart(cart);
+            var dao = new CategoryDao();
+            bool result = dao.UpdateCategory(cate);
             if (result)
             {
-                return RedirectToAction("Index", "Cart");
+                return RedirectToAction("Index", "Category");
             }
             else
             {
@@ -70,8 +62,8 @@ namespace ShoesShop.Areas.Admin.Controllers
         }
         public ActionResult Delete(int id)
         {
-            new CartDao().DeleteCart(id);
-            return RedirectToAction("Index", "Cart");
+            new CategoryDao().DeleteCategory(id);
+            return RedirectToAction("Index", "Category");
         }
     }
 }

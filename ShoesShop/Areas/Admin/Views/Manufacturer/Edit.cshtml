@@ -1,45 +1,40 @@
-﻿@model Model.EF.Cart
+﻿@model Model.EF.Manufacturer
 
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Edit</h2>
+
 @section header{
-    Update Cart
+    Update Manufacturer
 }
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Nhap thong tin nguoi dung
+
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-8">
-                        @using (Html.BeginForm("Edit","Cart",FormMethod.Post))
+
+                        @using (Html.BeginForm("Edit","Manufacturer",FormMethod.Post))
                         {
                             @Html.AntiForgeryToken()
 
                             <div class="form-horizontal">
-                                <h4>Cart</h4>
+                                <h4>Manufacturer</h4>
                                 <hr />
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                @Html.HiddenFor(model => model.cartId)
+                                @Html.HiddenFor(model => model.manufacturerId)
 
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.isPurchased, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    @Html.LabelFor(model => model.manufacturerName, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.isPurchased, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.isPurchased, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.userId, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.DropDownListFor(model => model.userId,null, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.userId, "", new { @class = "text-danger" })
+                                        @Html.TextBoxFor(model => model.manufacturerName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.manufacturerName, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 

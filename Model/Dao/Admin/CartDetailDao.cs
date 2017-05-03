@@ -14,6 +14,6 @@ namespace Model.Dao.Admin
         {
             db = new ShoesShopOnline();
         }
-        public 
+       
     }
 }
