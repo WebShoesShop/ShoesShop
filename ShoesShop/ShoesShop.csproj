@@ -927,7 +927,6 @@
     <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Product\CreateProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ProductImg\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ProductImg\Edit.cshtml" />
@@ -956,6 +955,7 @@
     <Content Include="Areas\Admin\Views\Manufacturer\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Manufacturer\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Manufacturer\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

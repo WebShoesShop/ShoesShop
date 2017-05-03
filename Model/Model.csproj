@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="Dao\Admin\AdminDao.cs" />
     <Compile Include="Dao\Admin\CartDao.cs" />
-    <Compile Include="Dao\Admin\CartDetailDao.cs" />
     <Compile Include="Dao\Admin\CategoryDao.cs" />
     <Compile Include="Dao\Admin\InvoiceDao.cs" />
     <Compile Include="Dao\Admin\ManufacturerDao.cs" />

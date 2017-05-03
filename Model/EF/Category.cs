@@ -18,6 +18,7 @@ namespace Model.EF
         public int categoryId { get; set; }
 
         [StringLength(100)]
+        [Display(Name ="Category")]
         public string categoryName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

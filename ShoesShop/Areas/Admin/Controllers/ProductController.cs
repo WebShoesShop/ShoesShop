@@ -19,14 +19,14 @@ namespace ShoesShop.Areas.Admin.Controllers
             return View(model);
         }
         [HttpGet]
-        public ActionResult CreateProduct()
+        public ActionResult Create()
         {
             SetCategory();
             SetManufacturer();
             return View();
         }
         [HttpPost]
-        public ActionResult CreateProduct(Product product)
+        public ActionResult Create(Product product)
         {
             var dao = new ProductDao();
             int id = dao.InsertProduct(product);
