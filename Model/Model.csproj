@@ -76,18 +76,19 @@
     <Compile Include="Dao\UI\ManufacturerDao.cs" />
     <Compile Include="Dao\UI\ProductDao.cs" />
     <Compile Include="EF\Admin.cs" />
-    <Compile Include="EF\BestSelling.cs" />
+    <Compile Include="EF\Author.cs" />
     <Compile Include="EF\Cart.cs" />
     <Compile Include="EF\CartDetail.cs" />
-    <Compile Include="EF\Category.cs" />
     <Compile Include="EF\Invoice.cs" />
-    <Compile Include="EF\Manufacturer.cs" />
     <Compile Include="EF\Method.cs" />
+    <Compile Include="EF\Order.cs" />
+    <Compile Include="EF\OrderDetail.cs" />
     <Compile Include="EF\Product.cs" />
     <Compile Include="EF\ProductImage.cs" />
     <Compile Include="EF\ShoesShopOnline.cs" />
     <Compile Include="EF\sysdiagram.cs" />
     <Compile Include="EF\Transaction.cs" />
+    <Compile Include="EF\Type.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

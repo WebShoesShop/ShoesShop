@@ -6,20 +6,19 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Manufacturer")]
-    public partial class Manufacturer
+    [Table("Author")]
+    public partial class Author
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Manufacturer()
+        public Author()
         {
             Products = new HashSet<Product>();
         }
 
-        public int manufacturerId { get; set; }
+        public int authorId { get; set; }
 
         [StringLength(100)]
-        [Display(Name ="Manufacturer")]
-        public string manufacturerName { get; set; }
+        public string authorName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }

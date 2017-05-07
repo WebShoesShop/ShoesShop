@@ -19,31 +19,24 @@ namespace Model.EF
         public int userId { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "User Name")]
         public string userName { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Password")]
         public string password { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Email")]
         public string email { get; set; }
 
         [StringLength(15)]
-        [Display(Name = "Phonenumber")]
         public string phoneNum { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Adress")]
         public string address { get; set; }
 
         [Column(TypeName = "money")]
-        [Display(Name = "Money")]
         public decimal? money { get; set; }
 
         [StringLength(150)]
-        [Display(Name = "User Ava")]
         public string userAva { get; set; }
 
         public bool? flag { get; set; }

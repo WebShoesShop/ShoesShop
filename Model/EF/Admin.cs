@@ -12,17 +12,14 @@ namespace Model.EF
         public int adminId { get; set; }
 
         [StringLength(100)]
-        [Display(Name ="Admin Name")]
         public string adminName { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Email")]
         public string email { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Password")]
         public string password { get; set; }
-        [Display(Name = "Role")]
+
         public int? role { get; set; }
     }
 }

@@ -13,19 +13,14 @@ namespace Model.EF
         public Method()
         {
             Invoices = new HashSet<Invoice>();
-            Transactions = new HashSet<Transaction>();
         }
 
         public int methodId { get; set; }
 
-        [Display(Name = "Method Name")]
         [StringLength(100)]
         public string methodName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoices { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

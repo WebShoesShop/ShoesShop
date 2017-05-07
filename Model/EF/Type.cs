@@ -6,20 +6,19 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Category")]
-    public partial class Category
+    [Table("Type")]
+    public partial class Type
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Category()
+        public Type()
         {
             Products = new HashSet<Product>();
         }
 
-        public int categoryId { get; set; }
+        public int typeId { get; set; }
 
         [StringLength(100)]
-        [Display(Name ="Category")]
-        public string categoryName { get; set; }
+        public string typeName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
