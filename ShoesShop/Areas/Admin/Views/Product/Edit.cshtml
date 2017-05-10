@@ -9,12 +9,20 @@
     Edit product
 }
 @section jsFooter{
-    <script>
+ <script>
         $(document).ready(function () {
             $("#txtStartDate").datepicker();
             $("#txtReleaseDate").datepicker();
         });
-    </script>
+        $('#btnSelect').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtProductAva').val(url);
+            };
+            finder.popup();
+        })
+</script>
 }
 <div class="row">
     <div class="col-lg-12">
@@ -46,7 +54,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.releaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        <input type="text" id="txtReleaseDate" name="txtReleaseDate" />
+                                        @Html.TextBoxFor(model => model.releaseDate, new { htmlAttributes = new { @class = "form-control", @id = "txtReleaseDate" }, @id = "txtReleaseDate" })
                                         @Html.ValidationMessageFor(model => model.releaseDate, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -54,7 +62,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.startDate, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        <input type="text" id="txtStartDate" name="txtStartDate" />
+                                        @Html.TextBoxFor(model => model.startDate, new { htmlAttributes = new { @class = "form-control", @id = "txtStartDate" }, @id = "txtStartDate" })
                                         @Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -110,7 +118,8 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.productAva, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.productAva, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.TextBoxFor(model => model.productAva, new { htmlAttributes = new { @class = "form-control", @id = "txtProductAva" }, @id = "txtProductAva" })
+                                        <a id="btnSelect" href="#">Select Image</a>
                                         @Html.ValidationMessageFor(model => model.productAva, "", new { @class = "text-danger" })
                                     </div>
                                 </div>

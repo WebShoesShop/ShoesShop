@@ -22,9 +22,11 @@ namespace Model.EF
         public string productName { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString ="{MM/dd/yyyy")]
         public DateTime? releaseDate { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{MM/dd/yyyy")]
         public DateTime? startDate { get; set; }
 
         [Column(TypeName = "money")]
