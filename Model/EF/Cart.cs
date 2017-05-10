@@ -13,7 +13,6 @@ namespace Model.EF
         public Cart()
         {
             CartDetails = new HashSet<CartDetail>();
-            Invoices = new HashSet<Invoice>();
         }
 
         public int cartId { get; set; }
@@ -27,7 +26,6 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartDetail> CartDetails { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual Invoice Invoice { get; set; }
     }
 }
