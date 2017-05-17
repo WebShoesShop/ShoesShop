@@ -64,7 +64,7 @@ ddsmoothmenu.init({
                     <ul>
                         <li>@Html.ActionLink("Home", "Home", "Home")</li>
                         <li>
-                            @Html.ActionLink("Product", "Product", "Home")
+                            @Html.ActionLink("Product", "Product", "Home", new { id = 1, sort = 1, order = 1}, null)
                             <ul>
                                 @{Html.RenderAction("Manufacturer", "Home"); }
                             </ul>

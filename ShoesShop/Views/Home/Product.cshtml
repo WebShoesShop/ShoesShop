@@ -3,6 +3,24 @@
     ViewBag.Title = "Product";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script type="text/javascript">
+    function sort() {
+        var sort = document.getElementById("sortType");
+        var order = document.getElementById("orderType");
+        window.location.href = "/Home/Product/0?sort=" + parseInt(sort) + "&order=" + parseInt(order);
+    }
+</script>
+<div class="sortBar">
+    <label>Sắp xếp theo</label>
+    <select id="sortType" onchange="sort()">
+        <option value="1">Tên sản phẩm</option>
+        <option value="2">Giá</option>
+    </select>
+    <select id="orderType" onchange="sort()">
+        <option value="1">Tăng dần</option>
+        <option value="1">Giảm dần</option>
+    </select>
+</div>
 
 <h2>Product</h2>
 

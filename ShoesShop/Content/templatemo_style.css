@@ -315,3 +315,9 @@ a.nivo-prevNav {
     color:#efe9d1;
     text-decoration:underline;
 }
+.sortBar{
+    margin: auto !important;
+}
+.sortBar label{
+    color: black !important;
+}

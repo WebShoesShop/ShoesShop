@@ -8,7 +8,7 @@
 {
     <div class="product_box">
         <h3>@item.ProductName</h3>
-        <a href="@Url.Action("DetailProduct", "Home", new { id = @item.ProductId })"><img src=@item.ImgString alt="image" /></a>
+        <a href="@Url.Action("DetailProduct", "Home", new { id = @item.ProductId, name="sdfsadfsadf" })"><img src=@item.ImgString alt="image" /></a>
         <p>@item.Description</p>
         <p class="product_price">@item.Price</p>
         <a href="shoppingcart.html" class="addtocart"></a>

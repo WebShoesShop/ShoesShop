@@ -19,7 +19,7 @@ namespace ShoesShop.Controllers
             return View(list);
         }
 
-        public ActionResult Product()
+        public ActionResult Product(int id, int sort, int order)
         {
             return View();
         }

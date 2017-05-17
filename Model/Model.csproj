@@ -76,6 +76,7 @@
     <Compile Include="Dao\UI\ManufacturerDao.cs" />
     <Compile Include="Dao\UI\ProductDao.cs" />
     <Compile Include="EF\Admin.cs" />
+    <Compile Include="EF\BestSelling.cs" />
     <Compile Include="EF\Cart.cs" />
     <Compile Include="EF\CartDetail.cs" />
     <Compile Include="EF\Category.cs" />

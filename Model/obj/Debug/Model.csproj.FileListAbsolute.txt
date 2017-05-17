@@ -12,6 +12,7 @@ F:\ShoesShop\Model\bin\Debug\PagedList.dll
 F:\ShoesShop\Model\bin\Debug\PagedList.Mvc.dll
 F:\ShoesShop\Model\bin\Debug\PagedList.xml
 F:\ShoesShop\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\Linh\Documents\ShoesShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\Linh\Documents\ShoesShop\Model\bin\Debug\Model.dll.config
 C:\Users\Linh\Documents\ShoesShop\Model\bin\Debug\Model.dll
 C:\Users\Linh\Documents\ShoesShop\Model\bin\Debug\Model.pdb
@@ -23,6 +24,5 @@ C:\Users\Linh\Documents\ShoesShop\Model\bin\Debug\EntityFramework.xml
 C:\Users\Linh\Documents\ShoesShop\Model\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Linh\Documents\ShoesShop\Model\bin\Debug\PagedList.xml
 C:\Users\Linh\Documents\ShoesShop\Model\bin\Debug\PagedList.Mvc.xml
-C:\Users\Linh\Documents\ShoesShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\Linh\Documents\ShoesShop\Model\obj\Debug\Model.dll
 C:\Users\Linh\Documents\ShoesShop\Model\obj\Debug\Model.pdb

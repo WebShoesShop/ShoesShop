@@ -86,9 +86,9 @@ F:\ShoesShop\ShoesShop\bin\PagedList.dll
 F:\ShoesShop\ShoesShop\bin\PagedList.Mvc.dll
 F:\ShoesShop\ShoesShop\bin\PagedList.xml
 F:\ShoesShop\ShoesShop\bin\PagedList.Mvc.xml
+F:\ShoesShop\ShoesShop\bin\CKFinder.dll
+F:\ShoesShop\ShoesShop\bin\CKFinder.pdb
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\obj\Debug\ShoesShop.csprojResolveAssemblyReference.cache
-C:\Users\Linh\Documents\ShoesShop\ShoesShop\obj\Debug\ShoesShop.dll
-C:\Users\Linh\Documents\ShoesShop\ShoesShop\obj\Debug\ShoesShop.pdb
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\ApplicationInsights.config
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\roslyn\csc.exe
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -106,6 +106,7 @@ C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\ShoesShop.dll.config
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\ShoesShop.dll
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\ShoesShop.pdb
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Antlr3.Runtime.dll
+C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\CKFinder.dll
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\EntityFramework.dll
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\EntityFramework.SqlServer.dll
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.AI.Agent.Intercept.dll
@@ -143,6 +144,7 @@ C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\System.Web.WebPages.dll
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\System.Web.WebPages.Razor.dll
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\WebGrease.dll
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Model.pdb
+C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\CKFinder.pdb
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.AI.Web.xml
@@ -174,7 +176,5 @@ C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.OAuth.xm
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\ShoesShop\ShoesShop\bin\CKFinder.dll
-F:\ShoesShop\ShoesShop\bin\CKFinder.pdb
-C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\CKFinder.dll
-C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\CKFinder.pdb
+C:\Users\Linh\Documents\ShoesShop\ShoesShop\obj\Debug\ShoesShop.dll
+C:\Users\Linh\Documents\ShoesShop\ShoesShop\obj\Debug\ShoesShop.pdb
