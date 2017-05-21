@@ -1,21 +1,28 @@
-﻿@using ShoesShop.Models;
-@model List<Product>
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Model.EF.Product>
 @{
     ViewBag.Title = "Home Page";
 }
 
-@foreach (var item in Model)
-{
-    <div class="product_box">
-        <h3>@item.ProductName</h3>
-        <a href="@Url.Action("DetailProduct", "Home", new { id = @item.ProductId, name="sdfsadfsadf" })"><img src=@item.ImgString alt="image" /></a>
-        <p>@item.Description</p>
-        <p class="product_price">@item.Price</p>
-        <a href="shoppingcart.html" class="addtocart"></a>
-        @Html.ActionLink(" ", "DetailProduct", "Home", new { id = @item.ProductId }, new { @class = "detail" })
+<section>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    <div class="myPagination">
+        @Html.PagedListPager(Model, page => Url.Action("Home", new { page }))
     </div>
-}
-
+</section>
+<section>
+    @foreach (var item in Model)
+    {
+        <div class="product_box">
+            <h3>@item.productName</h3>
+            <a href="@Url.Action("DetailProduct", "Home", new { id = @item.productId, name=@item.productName })"><img src=@item.productAva alt="image" /></a>
+            <p>@item.description</p>
+            <p class="product_price">@item.price</p>
+            <a href="shoppingcart.html" class="addtocart"></a>
+            @Html.ActionLink(" ", "DetailProduct", "Home", new { id = @item.productId }, new { @class = "detail" })
+        </div>
+    }
+</section>
 
 
 @section banner {

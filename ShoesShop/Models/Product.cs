@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Model.EF;
 using Model.Dao.UI;
+using PagedList;
 
 namespace ShoesShop.Models
 {
@@ -22,8 +23,9 @@ namespace ShoesShop.Models
         private String introduction;
         private String imgString;
 
-        private static String defaultImage = "Content/images/templatemo_image_01.jpg";
-        private static String imagePath = "http://localhost:55511/Content/images/";
+        private const String defaultImage = "";
+        private const String imagePath = "http://localhost:55511/Content/images/";
+        //private static String imagePath = "";
 
         public Product()
         {
@@ -83,7 +85,7 @@ namespace ShoesShop.Models
             String imgString = defaultImage;
             if (item.productAva != null && !"".Equals(item.productAva.Trim()))
             {
-                imgString = imagePath+item.productAva;
+                imgString = item.productAva;
             }
             result = new Product(item.productId, item.productName,
                 item.price, imgString);
@@ -98,76 +100,60 @@ namespace ShoesShop.Models
             IQueryable<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getProductInfo(id);
 
             Model.EF.Product item = listProduct.First();
-            String imgString = defaultImage;
-            if (item.productAva != null && !"".Equals(item.productAva.Trim()))
+            if (item.productAva != null && !"".Equals(item.productAva.Trim()) && !item.productAva.Contains(imagePath))
             {
-                imgString = imagePath+item.productAva;
+                item.productAva = imagePath+item.productAva;
             }
             result = new Product(item.productId, item.productName,
                 item.releaseDate, item.price, item.Category.categoryName, item.Manufacturer.manufacturerName,
-                imgString, item.isAvailable, item.description, item.introduction);
+                item.productAva, item.isAvailable, item.description, item.introduction);
 
 
             return result;
         }
 
-        public static List<Product> getListProductByManufatorId(int id)
+        public static IPagedList<Model.EF.Product> getListProductByManufatorId(int id, int page, int size)
         {
-            List<Product> result = new List<Product>();
-            IQueryable<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getListProductByManufatorId(id);
+            IPagedList<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getListProductByManufatorId(id, page, size);
             foreach (Model.EF.Product item in listProduct)
             {
-                String imgString = defaultImage;
-                if (item.productAva != null && !"".Equals(item.productAva.Trim()))
+                if (item.productAva != null && !"".Equals(item.productAva.Trim()) && !item.productAva.Contains(imagePath))
                 {
-                    imgString = imagePath + item.productAva;
+                    item.productAva = imagePath + item.productAva;
                 }
-                Product product = new Product(item.productId, item.productName,
-                    item.price, item.Manufacturer.manufacturerName, imgString, item.description);
-                result.Add(product);
             }
 
-            return result;
+            return listProduct;
         }
 
-        public static List<Product> getListProductByCategoryId(int id)
+        public static IPagedList<Model.EF.Product> getListProductByCategoryId(int id, int page, int size)
         {
-            List<Product> result = new List<Product>();
-            IQueryable<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getListProductByCategoryId(id);
+            IPagedList<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getListProductByCategoryId(id, page, size);
             foreach (Model.EF.Product item in listProduct)
             {
-                String imgString = defaultImage;
-                if (item.productAva != null && !"".Equals(item.productAva.Trim()))
+                if (item.productAva != null && !"".Equals(item.productAva.Trim()) && !item.productAva.Contains(imagePath))
                 {
-                    imgString = imagePath + item.productAva;
+                    item.productAva = imagePath + item.productAva;
                 }
-                Product product = new Product(item.productId, item.productName,
-                    item.price, item.Manufacturer.manufacturerName, imgString, item.description);
-                result.Add(product);
             }
 
-            return result;
+            return listProduct;
         }
 
 
-        public static List<Product> getListProduct()
+        public static IPagedList<Model.EF.Product> getListProduct(int page, int size)
         {
-            List<Product> result = new List<Product>();
-            IQueryable<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getListProduct();
+            IPagedList<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.getListProduct(page, size);
 
             foreach (Model.EF.Product item in listProduct)
             {
-                String imgString = defaultImage;
-                if (item.productAva != null && !"".Equals(item.productAva.Trim()))
+                if (item.productAva != null && !"".Equals(item.productAva.Trim()) && !item.productAva.Contains(imagePath))
                 {
-                    imgString = imagePath+item.productAva;
+                    item.productAva = imagePath+item.productAva;
                 }
-                Product product = new Product(item.productId, item.productName,
-                    item.price, item.Manufacturer.manufacturerName, imgString, item.description);
-                result.Add(product);
             }
 
-            return result;
+            return listProduct;
         }
 
         public int ProductId

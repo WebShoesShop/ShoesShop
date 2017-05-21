@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model.EF;
 using System.Data.SqlClient;
+using PagedList;
 
 namespace Model.Dao.UI
 {
@@ -13,19 +14,21 @@ namespace Model.Dao.UI
         private static ShoesShopOnline db = new ShoesShopOnline();
         private static String GET_PRODUCT_NAME = "select productName from Product where productId = ";
 
-        public static IQueryable<Product> getListProductByManufatorId(int id)
+        public static IPagedList<Product> getListProductByManufatorId(int id, int page, int size)
         {
             var query = (from product in db.Products
                          where product.manufacturerId == id && product.isAvailable == true
-                         select product);
+                         orderby product.releaseDate
+                         select product).ToPagedList(page, size);
             return query;
         }
 
-        public static IQueryable<Product> getListProductByCategoryId(int id)
+        public static IPagedList<Product> getListProductByCategoryId(int id, int page, int size)
         {
             var query = (from product in db.Products
                          where product.categoryId == id && product.isAvailable == true
-                         select product);
+                         orderby product.releaseDate
+                         select product).ToPagedList(page, size);
             return query;
         }
 
@@ -37,11 +40,12 @@ namespace Model.Dao.UI
             return query;
         }
 
-        public static IQueryable<Product> getListProduct()
+        public static IPagedList<Product> getListProduct(int page, int size)
         {
             var query = (from product in db.Products
                          where product.isAvailable == true
-                         select product);
+                         orderby product.releaseDate
+                         select product).ToPagedList(page, size);
             return query;
         }
 

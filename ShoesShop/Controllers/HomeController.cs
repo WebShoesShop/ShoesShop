@@ -1,4 +1,5 @@
-﻿using ShoesShop.Models;
+﻿using PagedList;
+using ShoesShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,10 +13,15 @@ namespace ShoesShop.Controllers
 {
     public class HomeController : Controller
     {
-        
-        public ActionResult Home()
+        const int pageSize = 9;
+
+        public ActionResult Home(int? page)
         {
-            List<Product> list = Models.Product.getListProduct();
+            if (page == null)
+            {
+                page = 1;
+            }
+            IPagedList<Model.EF.Product> list = Models.Product.getListProduct((int) page, pageSize);
             return View(list);
         }
 
@@ -56,23 +62,35 @@ namespace ShoesShop.Controllers
             return PartialView(list);
         }
         
-        public ActionResult ListProduct(int id)
+        public ActionResult ListProduct(int id, int? page)
         {
-            List<Product> list = Models.Product.getListProductByManufatorId(id);
+            if (page == null)
+            {
+                page = 1;
+            }
+            IPagedList<Model.EF.Product> list = Models.Product.getListProductByManufatorId(id, (int) page, pageSize);
 
             return View("Home", list);
         }
 
-        public ActionResult ListProductByCategoryId(int id)
+        public ActionResult ListProductByCategoryId(int id, int? page)
         {
-            List<Product> list = Models.Product.getListProductByCategoryId(id);
+            if (page == null)
+            {
+                page = 1;
+            }
+            IPagedList<Model.EF.Product> list = Models.Product.getListProductByCategoryId(id, (int)page, pageSize);
 
             return View("Home", list);
         }
 
-        public ActionResult ListProductByManufacturerId(int id)
+        public ActionResult ListProductByManufacturerId(int id, int? page)
         {
-            List<Product> list = Models.Product.getListProductByManufatorId(id);
+            if (page == null)
+            {
+                page = 1;
+            }
+            IPagedList<Model.EF.Product> list = Models.Product.getListProductByManufatorId(id, (int)page, pageSize);
 
             return View("Home", list);
         }
