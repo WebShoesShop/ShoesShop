@@ -226,6 +226,7 @@
     <Compile Include="Common\AdminLogin.cs" />
     <Compile Include="Common\Encrypt.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -989,6 +990,7 @@
     <Content Include="Views\Home\BestSelling.cshtml" />
     <Content Include="Views\Home\Manufacturer.cshtml" />
     <Content Include="Views\Home\DetailProduct.cshtml" />
+    <Content Include="Views\Product\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

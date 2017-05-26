@@ -13,6 +13,7 @@ namespace Model.Dao.UI
     {
         private static ShoesShopOnline db = new ShoesShopOnline();
         private static String GET_PRODUCT_NAME = "select productName from Product where productId = ";
+        private static String GET_All = "select * from Product ";
 
         public static IPagedList<Product> getListProductByManufatorId(int id, int page, int size)
         {
@@ -59,6 +60,58 @@ namespace Model.Dao.UI
             string productName = rdr.GetString(0);
             connect.Close();
             return productName;
+        }
+        
+        public static IPagedList<Product> getAllProduct(int? manufacturerId, int sort, int order, int page, int size)
+        {
+            String orderField;
+            if (order == 1)
+            {
+                orderField = "productName";
+            }
+            else
+            {
+                orderField = "price";
+            }
+
+            if (manufacturerId != null)
+            {
+                if (sort == 1)
+                {
+                    var query = (from product in db.Products
+                                 where product.manufacturerId == manufacturerId
+                                 orderby orderField descending
+                                 select product).ToPagedList(page, size);
+                    return query;
+                }
+                else
+                {
+                    var query = (from product in db.Products
+                                 where product.manufacturerId == manufacturerId
+                                 orderby orderField ascending
+                                 select product).ToPagedList(page, size);
+                    return query;
+                }
+                
+            }
+            else
+            {
+                if (sort == 1)
+                {
+                    var query = (from product in db.Products
+                                 orderby orderField descending
+                                 select product).ToPagedList(page, size);
+                    return query;
+                }
+                else
+                {
+                    var query = (from product in db.Products
+                                 orderby orderField ascending
+                                 select product).ToPagedList(page, size);
+                    return query;
+                }
+            }
+            
         }
     }
 }

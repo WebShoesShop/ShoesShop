@@ -15,6 +15,7 @@ namespace ShoesShop.Models
         private DateTime releaseDate;
         private Int64 price;
         private Int32 categoryId;
+
         private String categoryName;
         private Int32 manufacturerId;
         private String manufacturerName;
@@ -64,6 +65,28 @@ namespace ShoesShop.Models
             this.description = description;
         }
 
+        public static IPagedList<Model.EF.Product> getListProduct(int manufacturerId, int sort, int order, int page, int size)
+        {
+            IPagedList<Model.EF.Product> listProduct;
+            if (manufacturerId == 0)
+            {
+                listProduct = Model.Dao.UI.ProductDao.getAllProduct(null, sort, order, page, size);
+            }
+            else
+            {
+                listProduct = Model.Dao.UI.ProductDao.getAllProduct(manufacturerId, sort, order, page, size);
+            }
+            foreach (Model.EF.Product item in listProduct)
+            {
+                if (item.productAva != null && !"".Equals(item.productAva.Trim()) && !item.productAva.Contains(imagePath))
+                {
+                    item.productAva = imagePath + item.productAva;
+                }
+            }
+
+            return listProduct;
+        }
+        
         public static List<Product> getListBestSellingProduct()
         {
             List<Product> list = new List<Product>();

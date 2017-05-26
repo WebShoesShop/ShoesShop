@@ -3,5 +3,5 @@
 
 @foreach (var item in Model)
 {
-    <li>@Html.ActionLink(@item.ManufacturerName, "ListProductByManufacturerId", "Home", new { id = @item.ManufacturerId }, null)</li>
+    <li>@Html.ActionLink(@item.ManufacturerName, "ProductList", "Product", new { manufacturerId = @item.ManufacturerId, sort = 1, order = 1 }, null)</li>
 }

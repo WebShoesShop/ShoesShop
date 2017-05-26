@@ -13,7 +13,7 @@ namespace ShoesShop.Controllers
 {
     public class HomeController : Controller
     {
-        const int pageSize = 9;
+        const int pageSize = 12;
 
         public ActionResult Home(int? page)
         {
@@ -92,7 +92,7 @@ namespace ShoesShop.Controllers
             }
             IPagedList<Model.EF.Product> list = Models.Product.getListProductByManufatorId(id, (int)page, pageSize);
 
-            return View("Home", list);
+            return View("Product", list);
         }
 
         public ActionResult Manufacturer()

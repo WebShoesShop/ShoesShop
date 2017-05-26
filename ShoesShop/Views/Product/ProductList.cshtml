@@ -1,0 +1,63 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList < Model.EF.Product >
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script type="text/javascript">
+    function sort() {
+        var sort = document.getElementById("sortType");
+        var order = document.getElementById("orderType");
+        var sortValue = sort.options[sort.selectedIndex].value;
+        var orderValue = order.options[order.selectedIndex].value;
+        var url = window.location.href;
+        url = url.split('&')[0];
+        window.location.href = url + "&sort=" + sortValue + "&order=" + orderValue;
+    }
+    function pageClick(page) {
+        var sort = document.getElementById("sortType");
+        var order = document.getElementById("orderType");
+        var sortValue = sort.options[sort.selectedIndex].value;
+        var orderValue = order.options[order.selectedIndex].value;
+        var url = window.location.href;
+        url = url.split('&')[0];
+        window.location.href = url + "&sort=" + sortValue + "&order=" + orderValue + "&page=" + page;
+    }
+</script>
+<div class="sortBar">
+    <label>Sắp xếp theo</label>
+    <select id="orderType" onchange="sort()">
+        <option value="1">Tên sản phẩm</option>
+        <option value="2">Giá</option>
+    </select>
+    <select id="sortType" onchange="sort()">
+        <option value="1">Tăng dần</option>
+        <option value="2">Giảm dần</option>
+    </select>
+</div>
+<br/>
+
+<section>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount <br />
+    <div class="myPagination">
+        @for (int i = 1; i <= @Model.PageCount; i++)
+        {
+            <a href="#" onclick="pageClick(@i)">@i</a>
+        }
+    </div><br />
+</section>
+<section>
+    @foreach (var item in Model)
+    {
+        <div class="product_box">
+            <h3>@item.productName</h3>
+            <a href="@Url.Action("DetailProduct", "Home", new { id = @item.productId, name=@item.productName })"><img src=@item.productAva alt="image" /></a>
+            <p>@item.description</p>
+            <p class="product_price">@item.price</p>
+            <a href="shoppingcart.html" class="addtocart"></a>
+            @Html.ActionLink(" ", "DetailProduct", "Home", new { id = @item.productId }, new { @class = "detail" })
+        </div>
+    }
+</section>

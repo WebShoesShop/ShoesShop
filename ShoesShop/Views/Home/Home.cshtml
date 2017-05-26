@@ -5,10 +5,13 @@
 }
 
 <section>
-    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount <br/>
     <div class="myPagination">
-        @Html.PagedListPager(Model, page => Url.Action("Home", new { page }))
-    </div>
+        @for (int i = 1; i <= @Model.PageCount; i++)
+        {
+            <a href="/?page=@i">@i</a>
+        }
+    </div><br/>
 </section>
 <section>
     @foreach (var item in Model)
