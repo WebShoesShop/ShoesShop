@@ -29,20 +29,27 @@ http://www.templatemo.com/preview/templatemo_367_shoes
 
     <script type="text/javascript">
 
-ddsmoothmenu.init({
-	mainmenuid: "top_nav", //menu DIV id
-	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
-	classname: 'ddsmoothmenu', //class added to menu's outer DIV
-	//customtheme: ["#1c5a80", "#18374a"],
-	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-})
-
+        ddsmoothmenu.init({
+	        mainmenuid: "top_nav", //menu DIV id
+	        orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	        classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	        //customtheme: ["#1c5a80", "#18374a"],
+	        contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+        })
     </script>
-
+    <script type="text/javascript">
+        function search() {
+            var keyword = document.getElementById("keyword").value;
+            var url = window.location.href;
+            url = url.split('&')[0];
+            window.location.href = url +"Product/Search"+ "?keyword=" + keyword
+        }
+    </script>
+    
+    
 </head>
 
 <body>
-
     <div id="templatemo_body_wrapper">
         <div id="templatemo_wrapper">
 
@@ -84,9 +91,9 @@ ddsmoothmenu.init({
                     <br style="clear: left" />
                 </div> <!-- end of ddsmoothmenu -->
                 <div id="templatemo_search">
-                    <form action="#" method="get">
-                        <input type="text" value=" " name="keyword" id="keyword" title="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
-                        <input type="submit" name="Search" value=" " alt="Search" id="searchbutton" title="Search" class="sub_btn" />
+                    <form action="Search" method="get">
+                        <input type="text" value="" name="keyword" id="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+                        <input type="button" alt="Search" onclick="search()" id="searchbutton" title="Search" class="sub_btn"/>
                     </form>
                 </div>
             </div> <!-- END of templatemo_menubar -->

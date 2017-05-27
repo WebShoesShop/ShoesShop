@@ -12,8 +12,8 @@ namespace Model.Dao.UI
     public class ProductDao
     {
         private static ShoesShopOnline db = new ShoesShopOnline();
-        private static String GET_PRODUCT_NAME = "select productName from Product where productId = ";
-        private static String GET_All = "select * from Product ";
+        private const String GET_PRODUCT_NAME = "select productName from Product where productId = ";
+        private const String SEARCH_BY_NAME = "select * from Product where productName like '%XXXX%'";
 
         public static IPagedList<Product> getListProductByManufatorId(int id, int page, int size)
         {
@@ -112,6 +112,35 @@ namespace Model.Dao.UI
                 }
             }
             
+        }
+
+        public static List<Product> searchProductByName(string keyword)
+        {
+            List<Product> list = new List<Product>();
+            SqlConnection connect = DBConnection.getInstance();
+            connect.Open();
+            string cmd = SEARCH_BY_NAME.Replace("XXXX", keyword);
+            SqlCommand command = new SqlCommand(cmd);
+            SqlDataReader rdr = command.ExecuteReader();
+            while (rdr.Read())
+            {
+
+                Product product = new Product();
+                product.productId = rdr.GetInt32(1);
+                product.productName = rdr.GetString(2);
+                product.releaseDate = rdr.GetDateTime(3);
+                product.startDate = rdr.GetDateTime(4);
+                product.price = rdr.GetDecimal(5);
+                product.manufacturerId = rdr.GetInt32(6);
+                product.categoryId = rdr.GetInt32(7);
+                product.isAvailable = rdr.GetBoolean(8);
+                product.introduction = rdr.GetString(9);
+                product.description = rdr.GetString(10);
+                product.productAva = rdr.GetString(11);
+                list.Add(product);
+            }
+            connect.Close();
+            return list;
         }
     }
 }

@@ -26,6 +26,7 @@ namespace ShoesShop.Models
 
         private const String defaultImage = "";
         private const String imagePath = "http://localhost:55511/Content/images/";
+
         //private static String imagePath = "";
 
         public Product()
@@ -46,6 +47,7 @@ namespace ShoesShop.Models
             this.Description = description;
             this.Introduction = introduction;
         }
+
 
         public Product(Int32 id, String name, Decimal? price, String imgStr)
         {
@@ -177,6 +179,17 @@ namespace ShoesShop.Models
             }
 
             return listProduct;
+        }
+
+        public static List<Model.EF.Product> searchProductByName(string keyword)
+        {
+            List<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.searchProductByName(keyword);
+            return listProduct;
+        }
+
+        internal static List<Product> getListByPage(List<Model.EF.Product> listProduct, int skip, int pageSize)
+        {
+            
         }
 
         public int ProductId

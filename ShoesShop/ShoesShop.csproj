@@ -903,6 +903,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\js\ddsmoothmenu.js" />
+    <Content Include="Content\js\jquery-1.4.3.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.nivo.slider.pack.js" />
+    <Content Include="Content\js\slimbox2.js" />
     <Content Include="Content\nivo-slider.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\templatemo_style.css" />
@@ -991,6 +996,7 @@
     <Content Include="Views\Home\Manufacturer.cshtml" />
     <Content Include="Views\Home\DetailProduct.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
+    <Content Include="Views\Product\SearchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1002,7 +1008,6 @@
     <Folder Include="Content\Client\" />
     <Folder Include="Content\css\" />
     <Folder Include="Content\images\" />
-    <Folder Include="Content\js\" />
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
