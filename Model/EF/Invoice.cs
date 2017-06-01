@@ -14,13 +14,17 @@ namespace Model.EF
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "Cart")]
         public int cartId { get; set; }
 
+        [Display(Name = "Date Of Payment")]
         public DateTime? dateOfPayment { get; set; }
 
         [Column(TypeName = "money")]
+        [Display(Name = "TotalAmount")]
         public decimal? totalAmount { get; set; }
 
+        [Display(Name = "Method")]
         public int? methodId { get; set; }
 
         public virtual Cart Cart { get; set; }

@@ -19,29 +19,38 @@ namespace Model.EF
         public int productId { get; set; }
 
         [StringLength(100)]
+        [Display(Name = "Produce Name")]
         public string productName { get; set; }
 
-        [Column(TypeName = "date")]
-        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString ="{MM/dd/yyyy")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Release Date")]
         public DateTime? releaseDate { get; set; }
 
         [Column(TypeName = "date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{MM/dd/yyyy")]
+        [Display(Name = "Start Date")]
         public DateTime? startDate { get; set; }
 
         [Column(TypeName = "money")]
+        [Display(Name = "Price")]
         public decimal? price { get; set; }
 
+        [Display(Name = "Manafacturer")]
         public int? manufacturerId { get; set; }
 
+        [Display(Name = "Category")]
         public int? categoryId { get; set; }
 
+        [Display(Name = "Is Available")]
         public bool? isAvailable { get; set; }
 
         [Column(TypeName = "text")]
+        [Display(Name = "Introduction")]
         public string introduction { get; set; }
 
         [Column(TypeName = "text")]
+        [Display(Name = "Description")]
         public string description { get; set; }
 
         [StringLength(100)]

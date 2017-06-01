@@ -17,8 +17,10 @@ namespace Model.EF
 
         public int cartId { get; set; }
 
+        [Display(Name = "Is Purchased")]
         public bool? isPurchased { get; set; }
 
+        [Display(Name = "User")]
         public int? userId { get; set; }
 
         public virtual User User { get; set; }

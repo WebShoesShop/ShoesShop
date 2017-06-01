@@ -12,10 +12,13 @@ namespace Model.EF
         public int imgId { get; set; }
 
         [StringLength(150)]
+        [Display(Name = "ImgAbsolut Path")]
         public string imgAbsolutPath { get; set; }
 
+        [Display(Name = "Flg")]
         public bool? flag { get; set; }
 
+        [Display(Name = "Product")]
         public int? productId { get; set; }
 
         public virtual Product Product { get; set; }

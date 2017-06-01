@@ -17,8 +17,10 @@ namespace Model.EF
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "Product")]
         public int productId { get; set; }
 
+        [Display(Name = "Number")]
         public int? number { get; set; }
 
         public virtual Cart Cart { get; set; }

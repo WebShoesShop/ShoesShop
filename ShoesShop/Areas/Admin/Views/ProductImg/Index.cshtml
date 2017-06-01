@@ -31,10 +31,10 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>@item.imgAbsolutPath</td>
+                                    <td><img height="100px" src="@item.imgAbsolutPath" /></td>
                                     <td>@item.flag</td>
                                     <td>@item.productId</td>
-                                 
+
                                     <td>
                                         <a href="Edit/@item.imgId">Sua</a>
                                         @Ajax.ActionLink("Xoa", "Delete", "ProductImg", new { @id = @item.imgId }, new AjaxOptions

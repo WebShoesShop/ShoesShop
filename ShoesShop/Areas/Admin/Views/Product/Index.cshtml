@@ -41,11 +41,11 @@
                                     <td>@item.price</td>
                                     <td>@item.description</td>
                                     <td>@item.introduction</td>
-                                    <td>@item.productAva</td>
-                                    
+                                    <td><img height="100px" src="@item.productAva" /></td>
+
                                     <td>
                                         <a href="Edit/@item.productId">Sua</a>
-                                        @Ajax.ActionLink("Xoa", "Delete","Product", new { @id = @item.productId }, new AjaxOptions
+                                        @Ajax.ActionLink("Xoa", "Delete", "Product", new { @id = @item.productId }, new AjaxOptions
                                    {
                                        Confirm = "Ban co muon xoa ban ghi khong?",
                                        OnComplete = "$('row_" + @item.productId + "').remove()",
@@ -57,7 +57,7 @@
                             }
                         </tbody>
                     </table>
-                    @Html.PagedListPager(Model, page=> Url.Action("Index",new { page }));
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }));
                 </div>
                 <!-- /.table-responsive -->
             </div>
@@ -66,4 +66,3 @@
         <!-- /.panel -->
     </div>
 </div>
-
