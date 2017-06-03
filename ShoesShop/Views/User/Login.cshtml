@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Flat HTML5/CSS3 Login Form</title>
+    <title>Login</title>
 
 
 
@@ -17,21 +17,12 @@
 <body>
     <div class="login-page">
         <div class="form">
-            <form class="register-form">
-                <input type="text" placeholder="name" />
-                <input type="password" placeholder="password" />
-                <input type="text" placeholder="email address" />
-                <button>create</button>
-                <p class="message">Already registered? <a href="#">Sign In</a></p>
-            </form>
             @using (Html.BeginForm("CheckLogin", "User", FormMethod.Post, "login-form"))
             { 
-            @*<form class="login-form" method="post" action="User/CheckLogin" >*@
                 <input type="text" placeholder="Email" name="email" required/>
                 <input type="password" placeholder="Password" name="password" required/>
                 <button type="submit">Login</button>
-                <p class="message">Not registered? <a href="#">Create an account</a></p>
-            @*</form>*@
+                <p class="message">Not registered? @Html.ActionLink("Create an account", "Register", "User")</p>
             }
         </div>
     </div>
