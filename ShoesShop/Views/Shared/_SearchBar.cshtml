@@ -1,0 +1,14 @@
+﻿<script type="text/javascript">
+        function search() {
+            var keyword = document.getElementById("keyword").value;
+            var url = "http://localhost:55511/Product/Search";
+            window.location.href = url + "?keyword=" + keyword
+        }
+</script>
+
+<div id="templatemo_search">
+    <form action="Search" method="get">
+        <input type="text" value="" name="keyword" id="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+        <input type="button" alt="Search" onclick="search()" id="searchbutton" title="Search" class="sub_btn" />
+    </form>
+</div>

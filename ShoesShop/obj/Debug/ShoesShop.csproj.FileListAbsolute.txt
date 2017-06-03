@@ -88,7 +88,6 @@ F:\ShoesShop\ShoesShop\bin\PagedList.xml
 F:\ShoesShop\ShoesShop\bin\PagedList.Mvc.xml
 F:\ShoesShop\ShoesShop\bin\CKFinder.dll
 F:\ShoesShop\ShoesShop\bin\CKFinder.pdb
-C:\Users\Linh\Documents\ShoesShop\ShoesShop\obj\Debug\ShoesShop.csprojResolveAssemblyReference.cache
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\ApplicationInsights.config
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\roslyn\csc.exe
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -176,5 +175,6 @@ C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.OAuth.xm
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Linh\Documents\ShoesShop\ShoesShop\obj\Debug\ShoesShop.csprojResolveAssemblyReference.cache
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\obj\Debug\ShoesShop.dll
 C:\Users\Linh\Documents\ShoesShop\ShoesShop\obj\Debug\ShoesShop.pdb

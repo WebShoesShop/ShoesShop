@@ -37,14 +37,13 @@ http://www.templatemo.com/preview/templatemo_367_shoes
 	        contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
         })
     </script>
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         function search() {
             var keyword = document.getElementById("keyword").value;
-            var url = window.location.href;
-            url = url.split('&')[0];
-            window.location.href = url +"Product/Search"+ "?keyword=" + keyword
+            var url = "http://localhost:55511/Product/Search";
+            window.location.href = url + "?keyword=" + keyword
         }
-    </script>
+    </script>*@
     
     
 </head>
@@ -52,20 +51,7 @@ http://www.templatemo.com/preview/templatemo_367_shoes
 <body>
     <div id="templatemo_body_wrapper">
         <div id="templatemo_wrapper">
-
-            <div id="templatemo_header">
-                <div id="site_title"><h1><a href="#">Online Shoes Store</a></h1></div>
-                <div id="header_right">
-                    <p>
-                        <a href="#">My Account</a> | <a href="#">My Wishlist</a> | <a href="#">My Cart</a> | <a href="#">Checkout</a> | <a href="#">Log In</a>
-                    </p>
-                    <p>
-                        Shopping Cart: <strong>3 items</strong> ( <a href="shoppingcart.html">Show Cart</a> )
-                    </p>
-                </div>
-                <div class="cleaner"></div>
-            </div> <!-- END of templatemo_header -->
-
+            @Html.Partial("_HeaderBar")
             <div id="templatemo_menubar">
                 <div id="top_nav" class="ddsmoothmenu">
                     <ul>
@@ -76,26 +62,14 @@ http://www.templatemo.com/preview/templatemo_367_shoes
                                 @{Html.RenderAction("Manufacturer", "Home"); }
                             </ul>
                         </li>
-                        <li>
-                            @Html.ActionLink("About", "About", "Home")
-                            <ul>
-                                <li><a href="#submenu1">Sub menu 1</a></li>
-                                <li><a href="#submenu2">Sub menu 2</a></li>
-                                <li><a href="#submenu3">Sub menu 3</a></li>
-                            </ul>
-                        </li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("FAQs", "FAQs", "Home")</li>
                         <li>@Html.ActionLink("Checkout", "Checkout", "Home")</li>
                         <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                     </ul>
                     <br style="clear: left" />
-                </div> <!-- end of ddsmoothmenu -->
-                <div id="templatemo_search">
-                    <form action="Search" method="get">
-                        <input type="text" value="" name="keyword" id="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
-                        <input type="button" alt="Search" onclick="search()" id="searchbutton" title="Search" class="sub_btn"/>
-                    </form>
                 </div>
+                @Html.Partial("_SearchBar")
             </div> <!-- END of templatemo_menubar -->
 
             <div id="templatemo_main">

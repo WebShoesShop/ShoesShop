@@ -4,8 +4,46 @@
     ViewBag.Title = "SearchResult";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>SearchResult</h2>
+<script type="text/javascript">
+    function sort() {
+        var sort = document.getElementById("sortSearch");
+        var order = document.getElementById("orderSearch");
+        var sortValue = sort.options[sort.selectedIndex].value;
+        var orderValue = order.options[order.selectedIndex].value;
+        var url = window.location.href;
+        url = url.split('&')[0];
+        window.location.href = url + "&sort=" + sortValue + "&order=" + orderValue;
+    }
+    function pageClick(page) {
+        var sort = document.getElementById("sortSearch");
+        var order = document.getElementById("orderSearch");
+        var sortValue = sort.options[sort.selectedIndex].value;
+        var orderValue = order.options[order.selectedIndex].value;
+        var url = window.location.href;
+        url = url.split('&')[0];
+        window.location.href = url + "&sort=" + sortValue + "&order=" + orderValue + "&page=" + page;
+    }
+</script>
+<h2>Search result</h2>
+<div class="sortBar">
+    <label>Sắp xếp theo</label>
+    <select id="orderSearch" onchange="sort()">
+        <option value="1">Tên sản phẩm</option>
+        <option value="2">Giá</option>
+    </select>
+    <select id="sortSearch" onchange="sort()">
+        <option value="1">Tăng dần</option>
+        <option value="2">Giảm dần</option>
+    </select>
+</div>
+<br />
+<p>@TempData["Total"] item were found</p>
+<div class="myPagination">
+    @for (int i = 1; i <= (int) @TempData["TotalPage"]; i++)
+    {
+        <a href="#" onclick="pageClick(@i)">@i</a>
+    }
+</div><br />
 <section>
     @foreach (var item in Model)
     {

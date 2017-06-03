@@ -29,13 +29,18 @@ namespace ShoesShop.Controllers
             }
             List<Model.EF.Product> allProduct = Models.Product.searchProductByName(keyword);
             int total = allProduct.Count();
+            float pageNum = total / pageSize;
+            if (pageNum > (int)(total / pageSize))
+            {
+                TempData["TotalPage"] = (int)pageNum + 1;
+            }
+            else
+            {
+                TempData["TotalPage"] = (int)pageNum;
+            }
             int skip = (int) (page-1) * pageSize;
             IEnumerable<Model.EF.Product> list = Models.Product.getListByPage(allProduct, skip, pageSize);
             TempData["Total"] = total;
-            foreach (Model.EF.Product pro in list)
-            {
-                var a = 0;
-            }
             return View("SearchResult", list);
         }
     }
