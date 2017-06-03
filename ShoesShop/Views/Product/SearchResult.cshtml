@@ -1,8 +1,22 @@
-﻿
+﻿@using Model.EF;
+@model IEnumerable<Model.EF.Product>
 @{
     ViewBag.Title = "SearchResult";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>SearchResult</h2>
+<section>
+    @foreach (var item in Model)
+    {
+        <div class="product_box">
+            <h3>@item.productName</h3>
+            <a href="@Url.Action("DetailProduct", "Home", new { id = @item.productId, name=@item.productName })"><img src=@item.productAva alt="image" /></a>
+            <p>@item.description</p>
+            <p class="product_price">@item.price</p>
+            <a href="shoppingcart.html" class="addtocart"></a>
+            @Html.ActionLink(" ", "DetailProduct", "Home", new { id = @item.productId }, new { @class = "detail" })
+        </div>
+    }
+</section>
 

@@ -187,9 +187,32 @@ namespace ShoesShop.Models
             return listProduct;
         }
 
-        internal static List<Product> getListByPage(List<Model.EF.Product> listProduct, int skip, int pageSize)
+        public static IEnumerable<Model.EF.Product> getListByPage(IEnumerable<Model.EF.Product> listProduct, int skip, int pageSize)
         {
-            
+            int count = listProduct.Count();
+            if (skip >= count)
+            {
+                listProduct =  new List<Model.EF.Product>();
+            }
+            else
+            {
+                listProduct = listProduct.Skip(skip);
+                if (skip + pageSize > count)
+                {
+                }
+                else
+                {
+                    listProduct = listProduct.Take(pageSize);
+                }
+            }
+            foreach (Model.EF.Product product in listProduct)
+            {
+                if (product.productAva != null && !"".Equals(product.productAva.Trim()) && !product.productAva.Contains(imagePath))
+                {
+                    product.productAva = imagePath + product.productAva;
+                }
+            }
+            return listProduct;
         }
 
         public int ProductId

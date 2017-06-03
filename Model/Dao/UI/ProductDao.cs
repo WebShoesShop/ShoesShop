@@ -120,23 +120,23 @@ namespace Model.Dao.UI
             SqlConnection connect = DBConnection.getInstance();
             connect.Open();
             string cmd = SEARCH_BY_NAME.Replace("XXXX", keyword);
-            SqlCommand command = new SqlCommand(cmd);
+            SqlCommand command = new SqlCommand(cmd, connect);
             SqlDataReader rdr = command.ExecuteReader();
             while (rdr.Read())
             {
 
                 Product product = new Product();
-                product.productId = rdr.GetInt32(1);
-                product.productName = rdr.GetString(2);
-                product.releaseDate = rdr.GetDateTime(3);
-                product.startDate = rdr.GetDateTime(4);
-                product.price = rdr.GetDecimal(5);
-                product.manufacturerId = rdr.GetInt32(6);
-                product.categoryId = rdr.GetInt32(7);
-                product.isAvailable = rdr.GetBoolean(8);
-                product.introduction = rdr.GetString(9);
-                product.description = rdr.GetString(10);
-                product.productAva = rdr.GetString(11);
+                product.productId = rdr.GetInt32(0);
+                product.productName = rdr.GetString(1);
+                product.releaseDate = rdr.GetDateTime(2);
+                product.startDate = rdr.GetDateTime(3);
+                product.price = rdr.GetDecimal(4);
+                product.manufacturerId = rdr.GetInt32(5);
+                product.categoryId = rdr.GetInt32(6);
+                product.isAvailable = rdr.GetBoolean(7);
+                product.introduction = rdr.GetString(8);
+                product.description = rdr.GetString(9);
+                product.productAva = rdr.GetString(10);
                 list.Add(product);
             }
             connect.Close();
