@@ -11,21 +11,10 @@ http://www.templatemo.com/preview/templatemo_367_shoes
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link href="~/Content/templatemo_style.css" rel="stylesheet" type="text/css" />
-
     <link rel="stylesheet" href="~/Content/nivo-slider.css" type="text/css" media="screen" />
-
     <link rel="stylesheet" type="text/css" href="~/Content/css/ddsmoothmenu.css" />
-
     <script type="text/javascript" src="~/Content/js/jquery.min.js"></script>
-    <script type="text/javascript" src="~/Content/js/ddsmoothmenu.js">
-
-/***********************************************
-* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
-* This notice MUST stay intact for legal use
-* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
-***********************************************/
-
-    </script>
+    <script type="text/javascript" src="~/Content/js/ddsmoothmenu.js"></script>
 
     <script type="text/javascript">
 
@@ -37,15 +26,6 @@ http://www.templatemo.com/preview/templatemo_367_shoes
 	        contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
         })
     </script>
-    @*<script type="text/javascript">
-        function search() {
-            var keyword = document.getElementById("keyword").value;
-            var url = "http://localhost:55511/Product/Search";
-            window.location.href = url + "?keyword=" + keyword
-        }
-    </script>*@
-    
-    
 </head>
 
 <body>
@@ -92,7 +72,7 @@ http://www.templatemo.com/preview/templatemo_367_shoes
 
             <div id="templatemo_footer">
                 <p>
-                    @Html.ActionLink("Home", "Home", "Home") | @Html.ActionLink("Product", "Product", "Home") | @Html.ActionLink("About", "About", "Home") | @Html.ActionLink("FAQs", "FAQs", "Home") | @Html.ActionLink("Checkout", "Checkout", "Home") | @Html.ActionLink("Contact Us", "Contact", "Home")
+                    @Html.ActionLink("Home", "Home", "Home") | @Html.ActionLink("Product", "ProductList", "Product", new { manufacturerId = 0, sort = 1, order = 1 }, null) | @Html.ActionLink("About", "About", "Home") | @Html.ActionLink("FAQs", "FAQs", "Home") | @Html.ActionLink("Checkout", "Checkout", "Home") | @Html.ActionLink("Contact Us", "Contact", "Home")
                 </p>
 
                 No Copyright © 2017 <a href="https://www.google.com.vn/?gfe_rd=cr&ei=Gq4EWZOnK5TM8geDmqigDg&gws_rd=ssl">H2L And Friends</a> <!-- Credit: www.templatemo.com -->

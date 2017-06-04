@@ -10,10 +10,10 @@ namespace Model.Dao.UI
 {
     public class ManufacturerDao
     {
-        private static ShoesShopOnline db = new ShoesShopOnline();
 
         public static List<Manufacturer> getListManufacturer()
         {
+            ShoesShopOnline db = new ShoesShopOnline();
             return db.Manufacturers.ToList();
         }
     }

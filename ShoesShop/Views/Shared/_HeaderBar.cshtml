@@ -8,7 +8,7 @@
                     Hello @Session["user_name"]! You'r having @Session["money"] VND in your account
                 </h6>
                 <h6>
-                    <a href="#">My Account</a> | <a href="#">Add </a> | <a href="#">My Cart</a> | <a href="#">Checkout</a> | @Html.ActionLink("Logout", "Logout", "User")
+                    @Html.ActionLink("My Account", "Account", "User") | <a href="#">Recharge</a> | <a href="#">Checkout</a> | @Html.ActionLink("Logout", "Logout", "User")
                 </h6>
                 <h6>
                     Shopping Cart: <strong>3 items</strong> ( <a href="shoppingcart.html">Show Cart</a> )
@@ -16,9 +16,9 @@
             }
             else
             {
-                <h5>Hello</h5>
-                <h6>
-                    You haven't logged into your account. Please @Html.ActionLink("Login", "Login", "User") or @Html.ActionLink("Sign in", "Register", "User")
+                <h5 style="font-weight:bold;">Hello</h5>
+                <h6 style="font-weight:bold;">
+                    You haven't logged into your account. Please @Html.ActionLink("Login", "Login", "User") or @Html.ActionLink("Register", "Register", "User")
                 </h6>
             }
         </div>

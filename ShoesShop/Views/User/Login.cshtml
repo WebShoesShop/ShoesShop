@@ -17,6 +17,17 @@
 <body>
     <div class="login-page">
         <div class="form">
+            @if (TempData["Error"] != null)
+            {
+                if (1 == (int)TempData["Error"])
+                {
+                    <h5 style="color:red;">* email is NOT exist</h5>
+                }
+                else if (2 == (int)TempData["Error"])
+                {
+                    <h5 style="color:red;">* password NOT match</h5>
+                }
+            }
             @using (Html.BeginForm("CheckLogin", "User", FormMethod.Post, "login-form"))
             { 
                 <input type="text" placeholder="Email" name="email" required/>

@@ -20,7 +20,7 @@
             <h3>@item.productName</h3>
             <a href="@Url.Action("DetailProduct", "Home", new { id = @item.productId, name=@item.productName })"><img src=@item.productAva alt="image" /></a>
             <p>@item.description</p>
-            <p class="product_price">@item.price</p>
+            <p class="product_price">@((int)@item.price) VND</p>
             <a href="shoppingcart.html" class="addtocart"></a>
             @Html.ActionLink(" ", "DetailProduct", "Home", new { id = @item.productId }, new { @class = "detail" })
         </div>

@@ -110,7 +110,7 @@ namespace ShoesShop.Models
             String imgString = defaultImage;
             if (item.productAva != null && !"".Equals(item.productAva.Trim()))
             {
-                imgString = item.productAva;
+                imgString = imagePath+item.productAva;
             }
             result = new Product(item.productId, item.productName,
                 item.price, imgString);

@@ -75,5 +75,23 @@ namespace ShoesShop.Models
             Model.EF.User user = toDBObject(inputUser);
             Model.Dao.UI.UserDao.insertUser(user);
         }
+
+        internal static User getUserById(int userId)
+        {
+            IQueryable<Model.EF.User> data = Model.Dao.UI.UserDao.getUserById(userId);
+            if (data.Count() > 0)
+            {
+                Model.EF.User userData = data.First();
+                User user = fromDBDataToObject(userData);
+                return user;
+            }
+            return null;
+        }
+
+        internal static void update(User inputUser)
+        {
+            Model.EF.User user = toDBObject(inputUser);
+            Model.Dao.UI.UserDao.updateUser(user);
+        }
     }
 }

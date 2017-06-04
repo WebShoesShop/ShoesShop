@@ -10,11 +10,13 @@ namespace ShoesShop.Controllers
     {
         public ActionResult Login()
         {
+            TempData["Error"] = 0;
             return View();
         }
 
         public ActionResult Register()
         {
+            TempData["Error"] = 0;
             return View();
         }
 
@@ -24,7 +26,12 @@ namespace ShoesShop.Controllers
             String email = Request.Form["email"];
             String password = Request.Form["password"];
             Models.User user = Models.User.getUserByEmail(email);
-            if (user != null && user.password == password)
+            if (user == null)
+            {
+                TempData["Error"] = 1;
+                return View("Login");
+            }
+            else if (user != null && user.password == password)
             {
                 Session["user_id"] = user.userId;
                 Session["user_name"] = user.userName;
@@ -33,8 +40,8 @@ namespace ShoesShop.Controllers
             }
             else
             {
-                TempData["Check"] = false;
-                return Redirect(Request.UrlReferrer.ToString());
+                TempData["Error"] = 2;
+                return View("Login");
             }
         }
 
@@ -51,12 +58,12 @@ namespace ShoesShop.Controllers
             if (user != null)
             {
                 TempData["Error"] = 1;
-                return Redirect(Request.UrlReferrer.ToString());
+                return View("Register");
             }
             if (password != cfmPassword)
             {
                 TempData["Error"] = 2;
-                return Redirect(Request.UrlReferrer.ToString());
+                return View("Register");
             }
 
             Models.User inputUser = new Models.User(email, userName, password, phoneNumber, address);
@@ -72,7 +79,63 @@ namespace ShoesShop.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return Redirect(Request.UrlReferrer.ToString());
+            return RedirectToAction("Home", "Home");
+        }
+
+        public ActionResult Account()
+        {
+            int? userId = (int?) Session["user_id"];
+            if (userId != null)
+            {
+                Models.User user = Models.User.getUserById((int) userId);
+                return View(user);
+            }
+            else
+            {
+                Session.Clear();
+                return RedirectToAction("Home", "Home");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile()
+        {
+            String email = Request.Form["email"];
+            String userName = Request.Form["user_name"];
+            String phoneNumber = Request.Form["phone_number"];
+            String address = Request.Form["address"];
+            String password = Request.Form["password"];
+            String newPwd = Request.Form["new_pwd"];
+            String cfmNewPwd = Request.Form["cfm_new_pwd"];
+            Models.User user = Models.User.getUserByEmail(email);
+            if (user == null)
+            {
+                Session.Clear();
+                return RedirectToAction("Home", "Home");
+            }
+            if (password != user.password)
+            {
+                TempData["Error"] = 1;
+                return RedirectToAction("Account", "User");
+            }
+            if (newPwd != cfmNewPwd && newPwd.Trim() != cfmNewPwd.Trim())
+            {
+                TempData["Error"] = 2;
+                return View("Account");
+            }
+            Models.User inputUser;
+            if (newPwd != "")
+            {
+                inputUser = new Models.User(email, userName, newPwd, phoneNumber, address);
+            }
+            else
+            {
+                inputUser = new Models.User(email, userName, null, phoneNumber, address);
+            }
+            
+            Models.User.update(inputUser);
+            Session["user_name"] = userName;
+            return RedirectToAction("Home", "Home");
         }
     }
 }

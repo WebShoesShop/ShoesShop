@@ -14,14 +14,7 @@ namespace Model.Dao
 
         public static SqlConnection getInstance()
         {
-            if (con == null)
-            {
-                return new SqlConnection(connectionString);
-            }
-            else
-            {
-                return con;
-            }
+            return new SqlConnection(connectionString);
         }
     }
 }

@@ -11,12 +11,12 @@ namespace Model.Dao.UI
 {
     public class ProductDao
     {
-        private static ShoesShopOnline db = new ShoesShopOnline();
         private const String GET_PRODUCT_NAME = "select productName from Product where productId = ";
         private const String SEARCH_BY_NAME = "select * from Product where productName like '%XXXX%'";
 
         public static IPagedList<Product> getListProductByManufatorId(int id, int page, int size)
         {
+            ShoesShopOnline db = new ShoesShopOnline();
             var query = (from product in db.Products
                          where product.manufacturerId == id && product.isAvailable == true
                          orderby product.releaseDate
@@ -26,6 +26,7 @@ namespace Model.Dao.UI
 
         public static IPagedList<Product> getListProductByCategoryId(int id, int page, int size)
         {
+            ShoesShopOnline db = new ShoesShopOnline();
             var query = (from product in db.Products
                          where product.categoryId == id && product.isAvailable == true
                          orderby product.releaseDate
@@ -35,6 +36,7 @@ namespace Model.Dao.UI
 
         public static IQueryable<Product> getProductInfo(int productId)
         {
+            ShoesShopOnline db = new ShoesShopOnline();
             var query = (from product in db.Products
                          where product.productId == productId
                          select product);
@@ -43,6 +45,7 @@ namespace Model.Dao.UI
 
         public static IPagedList<Product> getListProduct(int page, int size)
         {
+            ShoesShopOnline db = new ShoesShopOnline();
             var query = (from product in db.Products
                          where product.isAvailable == true
                          orderby product.releaseDate
@@ -64,6 +67,7 @@ namespace Model.Dao.UI
         
         public static IPagedList<Product> getAllProduct(int? manufacturerId, int sort, int order, int page, int size)
         {
+            ShoesShopOnline db = new ShoesShopOnline();
             String orderField;
             if (order == 1)
             {
