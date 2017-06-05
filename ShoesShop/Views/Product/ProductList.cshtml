@@ -1,5 +1,5 @@
 ﻿@using PagedList.Mvc;
-@model PagedList.IPagedList < Model.EF.Product >
+@model PagedList.IPagedList<Model.EF.Product>
 @{
     ViewBag.Title = "Product";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -26,18 +26,49 @@
         window.location.href = url + "&sort=" + sortValue + "&order=" + orderValue + "&page=" + page;
     }
 </script>
+
 <div class="sortBar">
-    <label>Sắp xếp theo</label>
-    <select id="orderType" onchange="sort()">
-        <option value="1">Tên sản phẩm</option>
-        <option value="2">Giá</option>
-    </select>
-    <select id="sortType" onchange="sort()">
-        <option value="1">Tăng dần</option>
-        <option value="2">Giảm dần</option>
-    </select>
+    <label>Sort by</label>
+    @{
+        var sort = 1;
+        var order = 1;
+        if (TempData["sort"] != null && TempData["order"] != null)
+        {
+            sort = (int)TempData["sort"];
+            order = (int)TempData["order"];
+        }
+        if (order == 1)
+        {
+            @Html.DropDownList("Order Type", new SelectListItem[]{
+            new SelectListItem() { Text = "Product name", Value = "1" , Selected = true},
+            new SelectListItem() { Text = "Price", Value = "2" }},
+            new { @id = "orderType", @onchange = "sort()" })
+        }
+        else
+        {
+            @Html.DropDownList("Order Type", new SelectListItem[]{
+            new SelectListItem() { Text = "Product name", Value = "1"},
+            new SelectListItem() { Text = "Price", Value = "2" , Selected = true}},
+            new { @id = "orderType", @onchange = "sort()" })
+        }
+
+        if (sort == 1) { 
+            @Html.DropDownList("Sort Type", new SelectListItem[]{
+             new SelectListItem() { Text = "Descending", Value = "1"  , Selected = true},
+             new SelectListItem() { Text = "Ascending", Value = "2" }},
+             new { @id = "sortType", @onchange = "sort()" })
+        }
+        else
+        {
+            @Html.DropDownList("Sort Type", new SelectListItem[]{
+             new SelectListItem() { Text = "Descending", Value = "1" },
+             new SelectListItem() { Text = "Ascending", Value = "2"  , Selected = true}},
+             new { @id = "sortType", @onchange = "sort()" })
+        }
+    }
 </div>
-<br/>
+<br />
+
 
 <section>
     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount <br />
@@ -55,7 +86,7 @@
             <h3>@item.productName</h3>
             <a href="@Url.Action("DetailProduct", "Home", new { id = @item.productId, name=@item.productName })"><img src=@item.productAva alt="image" /></a>
             <p>@item.description</p>
-            <p class="product_price">@((int) @item.price) VND</p>
+            <p class="product_price">@((int)@item.price) VND</p>
             <a href="shoppingcart.html" class="addtocart"></a>
             @Html.ActionLink(" ", "DetailProduct", "Home", new { id = @item.productId }, new { @class = "detail" })
         </div>

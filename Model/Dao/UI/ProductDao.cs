@@ -12,7 +12,7 @@ namespace Model.Dao.UI
     public class ProductDao
     {
         private const String GET_PRODUCT_NAME = "select productName from Product where productId = ";
-        private const String SEARCH_BY_NAME = "select * from Product where productName like '%XXXX%'";
+        private const String SEARCH_BY_NAME = "select * from Product where productName like '%XXXX%' ";
 
         public static IPagedList<Product> getListProductByManufatorId(int id, int page, int size)
         {
@@ -68,62 +68,110 @@ namespace Model.Dao.UI
         public static IPagedList<Product> getAllProduct(int? manufacturerId, int sort, int order, int page, int size)
         {
             ShoesShopOnline db = new ShoesShopOnline();
-            String orderField;
             if (order == 1)
             {
-                orderField = "productName";
-            }
-            else
-            {
-                orderField = "price";
-            }
+                if (manufacturerId != null)
+                {
+                    if (sort == 1)
+                    {
+                        var query = (from product in db.Products
+                                     where product.manufacturerId == manufacturerId
+                                     orderby product.productName descending
+                                     select product).ToPagedList(page, size);
+                        return query;
+                    }
+                    else
+                    {
+                        var query = (from product in db.Products
+                                     where product.manufacturerId == manufacturerId
+                                     orderby product.productName ascending
+                                     select product).ToPagedList(page, size);
+                        return query;
+                    }
 
-            if (manufacturerId != null)
-            {
-                if (sort == 1)
-                {
-                    var query = (from product in db.Products
-                                 where product.manufacturerId == manufacturerId
-                                 orderby orderField descending
-                                 select product).ToPagedList(page, size);
-                    return query;
                 }
                 else
                 {
-                    var query = (from product in db.Products
-                                 where product.manufacturerId == manufacturerId
-                                 orderby orderField ascending
-                                 select product).ToPagedList(page, size);
-                    return query;
+                    if (sort == 1)
+                    {
+                        var query = (from product in db.Products
+                                     orderby product.productName descending
+                                     select product).ToPagedList(page, size);
+                        return query;
+                    }
+                    else
+                    {
+                        var query = (from product in db.Products
+                                     orderby product.productName ascending
+                                     select product).ToPagedList(page, size);
+                        return query;
+                    }
                 }
-                
             }
             else
             {
-                if (sort == 1)
+                if (manufacturerId != null)
                 {
-                    var query = (from product in db.Products
-                                 orderby orderField descending
-                                 select product).ToPagedList(page, size);
-                    return query;
+                    if (sort == 1)
+                    {
+                        var query = (from product in db.Products
+                                     where product.manufacturerId == manufacturerId
+                                     orderby product.price descending
+                                     select product).ToPagedList(page, size);
+                        return query;
+                    }
+                    else
+                    {
+                        var query = (from product in db.Products
+                                     where product.manufacturerId == manufacturerId
+                                     orderby product.price ascending
+                                     select product).ToPagedList(page, size);
+                        return query;
+                    }
+
                 }
                 else
                 {
-                    var query = (from product in db.Products
-                                 orderby orderField ascending
-                                 select product).ToPagedList(page, size);
-                    return query;
+                    if (sort == 1)
+                    {
+                        var query = (from product in db.Products
+                                     orderby product.price descending
+                                     select product).ToPagedList(page, size);
+                        return query;
+                    }
+                    else
+                    {
+                        var query = (from product in db.Products
+                                     orderby product.price ascending
+                                     select product).ToPagedList(page, size);
+                        return query;
+                    }
                 }
             }
-            
         }
 
-        public static List<Product> searchProductByName(string keyword)
+        public static List<Product> searchProductByName(string keyword, int order, int sort)
         {
             List<Product> list = new List<Product>();
             SqlConnection connect = DBConnection.getInstance();
             connect.Open();
             string cmd = SEARCH_BY_NAME.Replace("XXXX", keyword);
+            if (order == 1)
+            {
+                cmd = cmd + " order by productName ";
+            }
+            else
+            {
+                cmd = cmd + " order by productName ";
+            }
+            if (sort == 1)
+            {
+                cmd = cmd + " desc ";
+            }
+            else
+            {
+                cmd = cmd + " asc ";
+            }
             SqlCommand command = new SqlCommand(cmd, connect);
             SqlDataReader rdr = command.ExecuteReader();
             while (rdr.Read())

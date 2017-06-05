@@ -181,9 +181,9 @@ namespace ShoesShop.Models
             return listProduct;
         }
 
-        public static List<Model.EF.Product> searchProductByName(string keyword)
+        public static List<Model.EF.Product> searchProductByName(string keyword, int order, int sort)
         {
-            List<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.searchProductByName(keyword);
+            List<Model.EF.Product> listProduct = Model.Dao.UI.ProductDao.searchProductByName(keyword, order, sort);
             return listProduct;
         }
 

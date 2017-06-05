@@ -26,15 +26,45 @@
 </script>
 <h2>Search result</h2>
 <div class="sortBar">
-    <label>Sắp xếp theo</label>
-    <select id="orderSearch" onchange="sort()">
-        <option value="1">Tên sản phẩm</option>
-        <option value="2">Giá</option>
-    </select>
-    <select id="sortSearch" onchange="sort()">
-        <option value="1">Tăng dần</option>
-        <option value="2">Giảm dần</option>
-    </select>
+    <label>Sort by</label>
+    @{
+        var sort = 1;
+        var order = 1;
+        if (TempData["sort"] != null && TempData["order"] != null)
+        {
+            sort = (int) TempData["sort"];
+            order = (int) TempData["order"];
+        }
+        if (order == 1)
+        {
+            @Html.DropDownList("Order Type", new SelectListItem[]{
+            new SelectListItem() { Text = "Product name", Value = "1" , Selected = true},
+            new SelectListItem() { Text = "Price", Value = "2" }},
+            new { @id = "orderSearch", @onchange = "sort()" })
+        }
+        else
+        {
+            @Html.DropDownList("Order Type", new SelectListItem[]{
+            new SelectListItem() { Text = "Product name", Value = "1"},
+            new SelectListItem() { Text = "Price", Value = "2" , Selected = true}},
+            new { @id = "orderSearch", @onchange = "sort()" })
+        }
+
+        if (sort == 1)
+        {
+            @Html.DropDownList("Sort Type", new SelectListItem[]{
+             new SelectListItem() { Text = "Descending", Value = "1"  , Selected = true},
+             new SelectListItem() { Text = "Ascending", Value = "2" }},
+             new { @id = "sortSearch", @onchange = "sort()" })
+        }
+        else
+        {
+            @Html.DropDownList("Sort Type", new SelectListItem[]{
+             new SelectListItem() { Text = "Descending", Value = "1" },
+             new SelectListItem() { Text = "Ascending", Value = "2"  , Selected = true}},
+             new { @id = "sortSearch", @onchange = "sort()" })
+        }
+    }
 </div>
 <br />
 <p>@TempData["Total"] item were found</p>

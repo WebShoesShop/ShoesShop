@@ -1,6 +1,6 @@
 ﻿
 <div id="templatemo_header">
-    <div id="site_title"><h1><a href="#">Online Shoes Store</a></h1></div>
+    <div id="site_title"><h1>@Html.ActionLink("Online Shoes Store", "Home", "Home")</h1></div>
         <div id="header_right">
             @if (Session["user_id"] != null && Session["user_name"] != null)
             {
